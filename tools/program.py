@@ -95,8 +95,8 @@ def preprocess(is_train=False):
     alg = config['Architecture']['algorithm']
     assert alg in ['DB']
 
-    device = 'cuda:{}'.format(config['Global']['gpu_id']) if use_gpu else 'cpu'
-
+    # device = 'cuda:{}'.format(config['Global']['gpu_id']) if use_gpu else 'cpu'
+    device = torch.device("cuda:{}".format(config['Global']['gpu_id']) if torch.cuda.is_available() else "cpu")
     loggers = []
 
     log_writer = None
@@ -309,6 +309,5 @@ def eval(model,
         metric = eval_class.get_metric()
 
     pbar.close()
-    model.train()
     metric['fps'] = total_frame / total_time
     return metric

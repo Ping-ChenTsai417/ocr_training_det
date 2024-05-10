@@ -1,0 +1,4 @@
+Python interpreter
+C:/Users/PingChen/AppData/Local/anaconda3/envs/OCR_test/python.exe 
+
+C:/Users/PingChen/AppData/Local/anaconda3/envs/OCR_test/python.exe train.py --config configs\det\det_r50_vd_db.yml
