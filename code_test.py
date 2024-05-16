@@ -1,3 +1,4 @@
+# draw bounding box
 import json
 import matplotlib.pyplot as plt
 from PIL import Image
