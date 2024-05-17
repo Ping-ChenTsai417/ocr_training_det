@@ -95,8 +95,8 @@ def preprocess(is_train=False):
     alg = config['Architecture']['algorithm']
     assert alg in ['DB']
 
-    # device = 'cuda:{}'.format(config['Global']['gpu_id']) if use_gpu else 'cpu'
-    device = torch.device("cuda:{}".format(config['Global']['gpu_id']) if torch.cuda.is_available() else "cpu")
+    device = 'cuda:{}'.format(config['Global']['gpu_id']) if use_gpu else 'cpu'
+    # device = torch.device("cuda:{}".format(config['Global']['gpu_id']) if torch.cuda.is_available() else "cpu")
     loggers = []
 
     log_writer = None
@@ -111,7 +111,16 @@ def preprocess(is_train=False):
                                                              device))
     return config, device, logger, log_writer
 
-
+def save_model(epoch, model, optimizer, scheduler, save_dir):
+    save_path = os.path.join(save_dir, f"model_epoch_{epoch}.pth")
+    torch.save({
+        'epoch': epoch,
+        'model_state_dict': model.state_dict(),
+        'optimizer_state_dict': optimizer.state_dict(),
+        'scheduler_state_dict': scheduler.state_dict()
+    }, save_path)
+    print(f"Model saved to {save_path}")
+    
 def get_lr(config, name, module, *args, **kwargs):
     module_name = config[name]['type']
     module_args = config[name]['args']
@@ -136,6 +145,7 @@ def train(config,
     epoch_num = config['Global']['epoch_num']
     print_batch_step = config['Global']['print_batch_step']
     eval_batch_step = config['Global']['eval_batch_step']
+    
 
     global_step = 0
     start_eval_step = 0
@@ -155,6 +165,7 @@ def train(config,
         )
     save_epoch_step = config['Global']['save_epoch_step']
     save_model_dir = config['Global']['save_model_dir']
+    checkpoints = config['Global']['checkpoints']
     if not os.path.exists(save_model_dir):
         os.makedirs(save_model_dir)
     # 主要评价参数
@@ -265,6 +276,9 @@ def train(config,
                 ))
                 logger.info(cur_metric_str)
             reader_start = time.time()
+        # Save the model after each epoch
+        save_model(epoch, model, optimizer, scheduler, checkpoints)
+        
 
 
 def eval(model,

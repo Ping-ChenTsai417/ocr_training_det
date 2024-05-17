@@ -1,5 +1,5 @@
 Global:
-  use_gpu: true
+  use_gpu: false #true
   gpu_id: 0
   epoch_num: 1200
   log_smooth_window: 20
@@ -10,7 +10,7 @@ Global:
   eval_batch_step: [0, 50, 2000]
   cal_metric_during_train: False
   pretrained_model: ./pretrain_models/ResNet50_vd_ssld_pretrained
-  checkpoints:
+  checkpoints: ./output/det_r50_vd/best_accuracy
   save_inference_dir:
   use_tensorboard: True
   infer_img: doc/imgs_en/img_10.jpg

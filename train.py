@@ -45,7 +45,7 @@ def main(config, device, logger, log_writer):
     model = build_model(config['Architecture'])
     # build loss
     loss_class = build_loss(config['Loss'])
-
+    # build matrices
     eval_class = build_metric(config['Metric'])
     logger.info('train dataloader has {} iters'.format(len(train_dataloader)))
     if valid_dataloader is not None:
