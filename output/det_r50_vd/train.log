@@ -2122,3 +2122,4 @@
  								 ips: 0.19531 samples/s, eta: 72 days, 14:00:54
 [2024/05/17 01:48:09] wzocr INFO: epoch: [1/1200], global_step: 50, lr: 0.000386, loss: 128037200.000000, loss_shrink_maps: 128037200.000000, loss_threshold_maps: 1.170875, loss_binary_maps: 0.889468, 
  								 ips: 0.20675 samples/s, eta: 71 days, 12:41:54
+[2024/05/17 02:12:22] wzocr INFO: cur metric, precision: 0.0, recall: 0.0, hmean: 0, fps: 0.36336839275678484
