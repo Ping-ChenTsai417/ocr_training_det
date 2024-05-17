@@ -2112,3 +2112,13 @@
 [2024/05/17 01:22:19] wzocr INFO: train dataloader has 167 iters
 [2024/05/17 01:22:19] wzocr INFO: valid dataloader has 500 iters
 [2024/05/17 01:22:19] wzocr INFO: During the training process, after the 0th iteration, an evaluation is run every 50 iterations
+[2024/05/17 01:28:52] wzocr INFO: epoch: [1/1200], global_step: 10, lr: 0.000339, loss: 120142520.000000, loss_shrink_maps: 120142520.000000, loss_threshold_maps: 1.526896, loss_binary_maps: 0.952623, 
+ 								 ips: 0.15601 samples/s, eta: 89 days, 4:46:59
+[2024/05/17 01:33:28] wzocr INFO: epoch: [1/1200], global_step: 20, lr: 0.000346, loss: 123491168.000000, loss_shrink_maps: 123491168.000000, loss_threshold_maps: 1.366586, loss_binary_maps: 0.952623, 
+ 								 ips: 0.21718 samples/s, eta: 76 days, 15:20:03
+[2024/05/17 01:38:12] wzocr INFO: epoch: [1/1200], global_step: 30, lr: 0.000359, loss: 139701568.000000, loss_shrink_maps: 139701568.000000, loss_threshold_maps: 1.223637, loss_binary_maps: 0.951368, 
+ 								 ips: 0.21148 samples/s, eta: 73 days, 0:39:35
+[2024/05/17 01:43:19] wzocr INFO: epoch: [1/1200], global_step: 40, lr: 0.000373, loss: 143216960.000000, loss_shrink_maps: 143216960.000000, loss_threshold_maps: 1.177526, loss_binary_maps: 0.909914, 
+ 								 ips: 0.19531 samples/s, eta: 72 days, 14:00:54
+[2024/05/17 01:48:09] wzocr INFO: epoch: [1/1200], global_step: 50, lr: 0.000386, loss: 128037200.000000, loss_shrink_maps: 128037200.000000, loss_threshold_maps: 1.170875, loss_binary_maps: 0.889468, 
+ 								 ips: 0.20675 samples/s, eta: 71 days, 12:41:54

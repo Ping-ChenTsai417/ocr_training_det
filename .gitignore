@@ -1,0 +1,3 @@
+.vscode/
+__pycache__/
+output/det_r50_vd/tensor_log/
