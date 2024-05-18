@@ -35,6 +35,7 @@ def save_model(model,
     """
     save model to the target path
     """
+    epoch = 000 # 覆蓋掉
     _mkdir_if_not_exist(model_path, logger)
     save_path = os.path.join(model_path, f"Epoch_{epoch}_"+ prefix + ".pth")
 

@@ -284,6 +284,7 @@ def train(config,
             reader_start = time.time()
         # Save the model after each epoch
         # save_model(epoch, model, optimizer, scheduler, checkpoints)
+        # 如果不想每個epoch 都存，那就刪掉底下save_mode（）
         save_model(
                 model,
                 epoch,
