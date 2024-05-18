@@ -10,11 +10,11 @@ import numpy as np
 import time
 import json
 import torch
-from pytorchocr.base_ocr_v20 import BaseOCRV20
+from model.base_ocr_v20 import BaseOCRV20
 import tools.infer.pytorchocr_utility as utility
-from pytorchocr.utils.utility import get_image_file_list, check_and_read_gif
-from pytorchocr.data import create_operators, transform
-from pytorchocr.postprocess import build_post_process
+from model.utils.utility import get_image_file_list, check_and_read_gif
+from model.data import create_operators, transform
+from model.postprocess import build_post_process
 
 
 

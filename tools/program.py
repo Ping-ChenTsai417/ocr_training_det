@@ -15,6 +15,7 @@ from model.utils.utility import print_dict, AverageMeter
 from model.utils.loggers import Loggers
 from model.utils.stats import TrainingStats
 from model.utils.schedulers import WarmupPolyLR
+from model.utils.save_load import save_model
 
 
 class ArgsParser(ArgumentParser):
@@ -111,15 +112,6 @@ def preprocess(is_train=False):
                                                              device))
     return config, device, logger, log_writer
 
-def save_model(epoch, model, optimizer, scheduler, save_dir):
-    save_path = os.path.join(save_dir, f"model_epoch_{epoch}.pth")
-    torch.save({
-        'epoch': epoch,
-        'model_state_dict': model.state_dict(),
-        'optimizer_state_dict': optimizer.state_dict(),
-        'scheduler_state_dict': scheduler.state_dict()
-    }, save_path)
-    print(f"Model saved to {save_path}")
     
 def get_lr(config, name, module, *args, **kwargs):
     module_name = config[name]['type']
@@ -275,10 +267,37 @@ def train(config,
                     ['{}: {}'.format(k, v) for k, v in cur_metric.items()]
                 ))
                 logger.info(cur_metric_str)
+
+                if cur_metric[main_indicator] >= best_model_dict[main_indicator]:
+                    best_model_dict.update(cur_metric)
+                    best_model_dict['best_epoch'] = epoch
+                    save_model(
+                        model,
+                        epoch,
+                        optimizer,
+                        scheduler,
+                        checkpoints,
+                        logger,
+                        is_best=True,
+                        prefix='best_accuracy'
+                        )
             reader_start = time.time()
         # Save the model after each epoch
-        save_model(epoch, model, optimizer, scheduler, checkpoints)
-        
+        # save_model(epoch, model, optimizer, scheduler, checkpoints)
+        save_model(
+                model,
+                epoch,
+                optimizer,
+                scheduler,
+                checkpoints,
+                logger,
+                is_best=False,
+                prefix='accOCR'
+                )
+    best_str = 'best metric, {}'.format(', '.join([
+                    '{}: {}'.format(k, v) for k, v in best_model_dict.items()
+                    ]))
+    logger.info(best_str)    
 
 
 def eval(model,

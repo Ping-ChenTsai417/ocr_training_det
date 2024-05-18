@@ -2123,3 +2123,1263 @@
 [2024/05/17 01:48:09] wzocr INFO: epoch: [1/1200], global_step: 50, lr: 0.000386, loss: 128037200.000000, loss_shrink_maps: 128037200.000000, loss_threshold_maps: 1.170875, loss_binary_maps: 0.889468, 
  								 ips: 0.20675 samples/s, eta: 71 days, 12:41:54
 [2024/05/17 02:12:22] wzocr INFO: cur metric, precision: 0.0, recall: 0.0, hmean: 0, fps: 0.36336839275678484
+[2024/05/18 01:22:22] wzocr INFO: Architecture : 
+[2024/05/18 01:22:22] wzocr INFO:     Backbone : 
+[2024/05/18 01:22:22] wzocr INFO:         block : Bottleneck
+[2024/05/18 01:22:22] wzocr INFO:         name : ResNet
+[2024/05/18 01:22:22] wzocr INFO:         num_blocks : [3, 4, 6, 3]
+[2024/05/18 01:22:22] wzocr INFO:     Head : 
+[2024/05/18 01:22:22] wzocr INFO:         k : 50
+[2024/05/18 01:22:22] wzocr INFO:         name : DBHead
+[2024/05/18 01:22:22] wzocr INFO:     Neck : 
+[2024/05/18 01:22:22] wzocr INFO:         name : DBFPN
+[2024/05/18 01:22:22] wzocr INFO:         out_channels : 256
+[2024/05/18 01:22:22] wzocr INFO:     Transform : None
+[2024/05/18 01:22:22] wzocr INFO:     algorithm : DB
+[2024/05/18 01:22:22] wzocr INFO:     model_type : det
+[2024/05/18 01:22:22] wzocr INFO: Eval : 
+[2024/05/18 01:22:22] wzocr INFO:     dataset : 
+[2024/05/18 01:22:22] wzocr INFO:         data_dir : ./dataset/icdar2015/text_localization/
+[2024/05/18 01:22:22] wzocr INFO:         label_file_list : ['./dataset/icdar2015/text_localization/test_icdar2015_label.txt']
+[2024/05/18 01:22:22] wzocr INFO:         name : SimpleDataSet
+[2024/05/18 01:22:22] wzocr INFO:         transforms : 
+[2024/05/18 01:22:22] wzocr INFO:             DecodeImage : 
+[2024/05/18 01:22:22] wzocr INFO:                 channel_first : False
+[2024/05/18 01:22:22] wzocr INFO:                 img_mode : BGR
+[2024/05/18 01:22:22] wzocr INFO:             DetLabelEncode : None
+[2024/05/18 01:22:22] wzocr INFO:             DetResizeForTest : 
+[2024/05/18 01:22:22] wzocr INFO:                 image_shape : [736, 1280]
+[2024/05/18 01:22:22] wzocr INFO:             NormalizeImage : 
+[2024/05/18 01:22:22] wzocr INFO:                 mean : [0.485, 0.456, 0.406]
+[2024/05/18 01:22:22] wzocr INFO:                 order : hwc
+[2024/05/18 01:22:22] wzocr INFO:                 scale : 1./255.
+[2024/05/18 01:22:22] wzocr INFO:                 std : [0.229, 0.224, 0.225]
+[2024/05/18 01:22:22] wzocr INFO:             ToCHWImage : None
+[2024/05/18 01:22:22] wzocr INFO:             KeepKeys : 
+[2024/05/18 01:22:22] wzocr INFO:                 keep_keys : ['image', 'shape', 'polys', 'ignore_tags']
+[2024/05/18 01:22:22] wzocr INFO:     loader : 
+[2024/05/18 01:22:22] wzocr INFO:         batch_size_per_card : 1
+[2024/05/18 01:22:22] wzocr INFO:         drop_last : False
+[2024/05/18 01:22:22] wzocr INFO:         num_workers : 2
+[2024/05/18 01:22:22] wzocr INFO:         shuffle : False
+[2024/05/18 01:22:22] wzocr INFO: Global : 
+[2024/05/18 01:22:22] wzocr INFO:     cal_metric_during_train : False
+[2024/05/18 01:22:22] wzocr INFO:     checkpoints : ./output/det_r50_vd/best_accuracy
+[2024/05/18 01:22:22] wzocr INFO:     epoch_num : 1200
+[2024/05/18 01:22:22] wzocr INFO:     eval_batch_step : [0, 50, 2000]
+[2024/05/18 01:22:22] wzocr INFO:     gpu_id : 0
+[2024/05/18 01:22:22] wzocr INFO:     infer_img : doc/imgs_en/img_10.jpg
+[2024/05/18 01:22:22] wzocr INFO:     log_smooth_window : 20
+[2024/05/18 01:22:22] wzocr INFO:     pretrained_model : ./pretrain_models/ResNet50_vd_ssld_pretrained
+[2024/05/18 01:22:22] wzocr INFO:     print_batch_step : 10
+[2024/05/18 01:22:22] wzocr INFO:     save_epoch_step : 100
+[2024/05/18 01:22:22] wzocr INFO:     save_inference_dir : None
+[2024/05/18 01:22:22] wzocr INFO:     save_model_dir : ./output/det_r50_vd/
+[2024/05/18 01:22:22] wzocr INFO:     save_res_path : ./output/det_db/predicts_db.txt
+[2024/05/18 01:22:22] wzocr INFO:     seed : 1024
+[2024/05/18 01:22:22] wzocr INFO:     use_gpu : False
+[2024/05/18 01:22:22] wzocr INFO:     use_tensorboard : True
+[2024/05/18 01:22:22] wzocr INFO: Loss : 
+[2024/05/18 01:22:22] wzocr INFO:     alpha : 5
+[2024/05/18 01:22:22] wzocr INFO:     balance_loss : True
+[2024/05/18 01:22:22] wzocr INFO:     beta : 10
+[2024/05/18 01:22:22] wzocr INFO:     main_loss_type : DiceLoss
+[2024/05/18 01:22:22] wzocr INFO:     name : DBLoss
+[2024/05/18 01:22:22] wzocr INFO:     ohem_ratio : 3
+[2024/05/18 01:22:22] wzocr INFO: Metric : 
+[2024/05/18 01:22:22] wzocr INFO:     main_indicator : hmean
+[2024/05/18 01:22:22] wzocr INFO:     name : DetMetric
+[2024/05/18 01:22:22] wzocr INFO: Optimizer : 
+[2024/05/18 01:22:22] wzocr INFO:     args : 
+[2024/05/18 01:22:22] wzocr INFO:         amsgrad : True
+[2024/05/18 01:22:22] wzocr INFO:         lr : 0.001
+[2024/05/18 01:22:22] wzocr INFO:         weight_decay : 0
+[2024/05/18 01:22:22] wzocr INFO:     lr_scheduler : 
+[2024/05/18 01:22:22] wzocr INFO:         args : 
+[2024/05/18 01:22:22] wzocr INFO:             warmup_epoch : 3
+[2024/05/18 01:22:22] wzocr INFO:         type : WarmupPolyLR
+[2024/05/18 01:22:22] wzocr INFO:     type : Adam
+[2024/05/18 01:22:22] wzocr INFO: PostProcess : 
+[2024/05/18 01:22:22] wzocr INFO:     box_thresh : 0.7
+[2024/05/18 01:22:22] wzocr INFO:     max_candidates : 1000
+[2024/05/18 01:22:22] wzocr INFO:     name : DBPostProcess
+[2024/05/18 01:22:22] wzocr INFO:     thresh : 0.3
+[2024/05/18 01:22:22] wzocr INFO:     unclip_ratio : 1.5
+[2024/05/18 01:22:22] wzocr INFO: Train : 
+[2024/05/18 01:22:22] wzocr INFO:     dataset : 
+[2024/05/18 01:22:22] wzocr INFO:         data_dir : ./dataset/icdar2015/text_localization/
+[2024/05/18 01:22:22] wzocr INFO:         label_file_list : ['./dataset/icdar2015/text_localization/train_icdar2015_label.txt']
+[2024/05/18 01:22:22] wzocr INFO:         name : SimpleDataSet
+[2024/05/18 01:22:22] wzocr INFO:         ratio_list : [1.0]
+[2024/05/18 01:22:22] wzocr INFO:         transforms : 
+[2024/05/18 01:22:22] wzocr INFO:             DecodeImage : 
+[2024/05/18 01:22:22] wzocr INFO:                 channel_first : False
+[2024/05/18 01:22:22] wzocr INFO:                 img_mode : BGR
+[2024/05/18 01:22:22] wzocr INFO:             DetLabelEncode : None
+[2024/05/18 01:22:22] wzocr INFO:             IaaAugment : 
+[2024/05/18 01:22:22] wzocr INFO:                 augmenter_args : 
+[2024/05/18 01:22:22] wzocr INFO:                     args : 
+[2024/05/18 01:22:22] wzocr INFO:                         p : 0.5
+[2024/05/18 01:22:22] wzocr INFO:                     type : Fliplr
+[2024/05/18 01:22:22] wzocr INFO:                     args : 
+[2024/05/18 01:22:22] wzocr INFO:                         rotate : [-10, 10]
+[2024/05/18 01:22:22] wzocr INFO:                     type : Affine
+[2024/05/18 01:22:22] wzocr INFO:                     args : 
+[2024/05/18 01:22:22] wzocr INFO:                         size : [0.5, 3]
+[2024/05/18 01:22:22] wzocr INFO:                     type : Resize
+[2024/05/18 01:22:22] wzocr INFO:             EastRandomCropData : 
+[2024/05/18 01:22:22] wzocr INFO:                 keep_ratio : True
+[2024/05/18 01:22:22] wzocr INFO:                 max_tries : 50
+[2024/05/18 01:22:22] wzocr INFO:                 size : [640, 640]
+[2024/05/18 01:22:22] wzocr INFO:             MakeBorderMap : 
+[2024/05/18 01:22:22] wzocr INFO:                 shrink_ratio : 0.4
+[2024/05/18 01:22:22] wzocr INFO:                 thresh_max : 0.7
+[2024/05/18 01:22:22] wzocr INFO:                 thresh_min : 0.3
+[2024/05/18 01:22:22] wzocr INFO:             MakeShrinkMap : 
+[2024/05/18 01:22:22] wzocr INFO:                 min_text_size : 8
+[2024/05/18 01:22:22] wzocr INFO:                 shrink_ratio : 0.4
+[2024/05/18 01:22:22] wzocr INFO:             NormalizeImage : 
+[2024/05/18 01:22:22] wzocr INFO:                 mean : [0.485, 0.456, 0.406]
+[2024/05/18 01:22:22] wzocr INFO:                 order : hwc
+[2024/05/18 01:22:22] wzocr INFO:                 scale : 1./255.
+[2024/05/18 01:22:22] wzocr INFO:                 std : [0.229, 0.224, 0.225]
+[2024/05/18 01:22:22] wzocr INFO:             ToCHWImage : None
+[2024/05/18 01:22:22] wzocr INFO:             KeepKeys : 
+[2024/05/18 01:22:22] wzocr INFO:                 keep_keys : ['image', 'threshold_map', 'threshold_mask', 'shrink_map', 'shrink_mask']
+[2024/05/18 01:22:22] wzocr INFO:     loader : 
+[2024/05/18 01:22:22] wzocr INFO:         batch_size_per_card : 6
+[2024/05/18 01:22:22] wzocr INFO:         drop_last : False
+[2024/05/18 01:22:22] wzocr INFO:         num_workers : 4
+[2024/05/18 01:22:22] wzocr INFO:         shuffle : True
+[2024/05/18 01:22:22] wzocr INFO: train with pytorch 2.3.0+cpu and device cpu
+[2024/05/18 01:22:22] wzocr INFO: Initialize indexs of datasets:['./dataset/icdar2015/text_localization/train_icdar2015_label.txt']
+[2024/05/18 01:22:22] wzocr INFO: Initialize indexs of datasets:['./dataset/icdar2015/text_localization/test_icdar2015_label.txt']
+[2024/05/18 01:22:22] wzocr INFO: train dataloader has 19 iters
+[2024/05/18 01:22:22] wzocr INFO: valid dataloader has 500 iters
+[2024/05/18 01:22:22] wzocr INFO: During the training process, after the 0th iteration, an evaluation is run every 50 iterations
+[2024/05/18 01:27:06] wzocr INFO: Architecture : 
+[2024/05/18 01:27:06] wzocr INFO:     Backbone : 
+[2024/05/18 01:27:06] wzocr INFO:         block : Bottleneck
+[2024/05/18 01:27:06] wzocr INFO:         name : ResNet
+[2024/05/18 01:27:06] wzocr INFO:         num_blocks : [3, 4, 6, 3]
+[2024/05/18 01:27:06] wzocr INFO:     Head : 
+[2024/05/18 01:27:06] wzocr INFO:         k : 50
+[2024/05/18 01:27:06] wzocr INFO:         name : DBHead
+[2024/05/18 01:27:06] wzocr INFO:     Neck : 
+[2024/05/18 01:27:06] wzocr INFO:         name : DBFPN
+[2024/05/18 01:27:06] wzocr INFO:         out_channels : 256
+[2024/05/18 01:27:06] wzocr INFO:     Transform : None
+[2024/05/18 01:27:06] wzocr INFO:     algorithm : DB
+[2024/05/18 01:27:06] wzocr INFO:     model_type : det
+[2024/05/18 01:27:06] wzocr INFO: Eval : 
+[2024/05/18 01:27:06] wzocr INFO:     dataset : 
+[2024/05/18 01:27:06] wzocr INFO:         data_dir : ./dataset/icdar2015/text_localization/
+[2024/05/18 01:27:06] wzocr INFO:         label_file_list : ['./dataset/icdar2015/text_localization/test_icdar2015_label.txt']
+[2024/05/18 01:27:06] wzocr INFO:         name : SimpleDataSet
+[2024/05/18 01:27:06] wzocr INFO:         transforms : 
+[2024/05/18 01:27:06] wzocr INFO:             DecodeImage : 
+[2024/05/18 01:27:06] wzocr INFO:                 channel_first : False
+[2024/05/18 01:27:06] wzocr INFO:                 img_mode : BGR
+[2024/05/18 01:27:06] wzocr INFO:             DetLabelEncode : None
+[2024/05/18 01:27:06] wzocr INFO:             DetResizeForTest : 
+[2024/05/18 01:27:06] wzocr INFO:                 image_shape : [736, 1280]
+[2024/05/18 01:27:06] wzocr INFO:             NormalizeImage : 
+[2024/05/18 01:27:06] wzocr INFO:                 mean : [0.485, 0.456, 0.406]
+[2024/05/18 01:27:06] wzocr INFO:                 order : hwc
+[2024/05/18 01:27:06] wzocr INFO:                 scale : 1./255.
+[2024/05/18 01:27:06] wzocr INFO:                 std : [0.229, 0.224, 0.225]
+[2024/05/18 01:27:06] wzocr INFO:             ToCHWImage : None
+[2024/05/18 01:27:06] wzocr INFO:             KeepKeys : 
+[2024/05/18 01:27:06] wzocr INFO:                 keep_keys : ['image', 'shape', 'polys', 'ignore_tags']
+[2024/05/18 01:27:06] wzocr INFO:     loader : 
+[2024/05/18 01:27:06] wzocr INFO:         batch_size_per_card : 1
+[2024/05/18 01:27:06] wzocr INFO:         drop_last : False
+[2024/05/18 01:27:06] wzocr INFO:         num_workers : 2
+[2024/05/18 01:27:06] wzocr INFO:         shuffle : False
+[2024/05/18 01:27:06] wzocr INFO: Global : 
+[2024/05/18 01:27:06] wzocr INFO:     cal_metric_during_train : False
+[2024/05/18 01:27:06] wzocr INFO:     checkpoints : ./output/det_r50_vd/best_accuracy
+[2024/05/18 01:27:06] wzocr INFO:     epoch_num : 1200
+[2024/05/18 01:27:06] wzocr INFO:     eval_batch_step : [0, 50, 2000]
+[2024/05/18 01:27:06] wzocr INFO:     gpu_id : 0
+[2024/05/18 01:27:06] wzocr INFO:     infer_img : doc/imgs_en/img_10.jpg
+[2024/05/18 01:27:06] wzocr INFO:     log_smooth_window : 20
+[2024/05/18 01:27:06] wzocr INFO:     pretrained_model : ./pretrain_models/ResNet50_vd_ssld_pretrained
+[2024/05/18 01:27:06] wzocr INFO:     print_batch_step : 10
+[2024/05/18 01:27:06] wzocr INFO:     save_epoch_step : 100
+[2024/05/18 01:27:06] wzocr INFO:     save_inference_dir : None
+[2024/05/18 01:27:06] wzocr INFO:     save_model_dir : ./output/det_r50_vd/
+[2024/05/18 01:27:06] wzocr INFO:     save_res_path : ./output/det_db/predicts_db.txt
+[2024/05/18 01:27:06] wzocr INFO:     seed : 1024
+[2024/05/18 01:27:06] wzocr INFO:     use_gpu : False
+[2024/05/18 01:27:06] wzocr INFO:     use_tensorboard : True
+[2024/05/18 01:27:06] wzocr INFO: Loss : 
+[2024/05/18 01:27:06] wzocr INFO:     alpha : 5
+[2024/05/18 01:27:06] wzocr INFO:     balance_loss : True
+[2024/05/18 01:27:06] wzocr INFO:     beta : 10
+[2024/05/18 01:27:06] wzocr INFO:     main_loss_type : DiceLoss
+[2024/05/18 01:27:06] wzocr INFO:     name : DBLoss
+[2024/05/18 01:27:06] wzocr INFO:     ohem_ratio : 3
+[2024/05/18 01:27:06] wzocr INFO: Metric : 
+[2024/05/18 01:27:06] wzocr INFO:     main_indicator : hmean
+[2024/05/18 01:27:06] wzocr INFO:     name : DetMetric
+[2024/05/18 01:27:06] wzocr INFO: Optimizer : 
+[2024/05/18 01:27:06] wzocr INFO:     args : 
+[2024/05/18 01:27:06] wzocr INFO:         amsgrad : True
+[2024/05/18 01:27:06] wzocr INFO:         lr : 0.001
+[2024/05/18 01:27:06] wzocr INFO:         weight_decay : 0
+[2024/05/18 01:27:06] wzocr INFO:     lr_scheduler : 
+[2024/05/18 01:27:06] wzocr INFO:         args : 
+[2024/05/18 01:27:06] wzocr INFO:             warmup_epoch : 3
+[2024/05/18 01:27:06] wzocr INFO:         type : WarmupPolyLR
+[2024/05/18 01:27:06] wzocr INFO:     type : Adam
+[2024/05/18 01:27:06] wzocr INFO: PostProcess : 
+[2024/05/18 01:27:06] wzocr INFO:     box_thresh : 0.7
+[2024/05/18 01:27:06] wzocr INFO:     max_candidates : 1000
+[2024/05/18 01:27:06] wzocr INFO:     name : DBPostProcess
+[2024/05/18 01:27:06] wzocr INFO:     thresh : 0.3
+[2024/05/18 01:27:06] wzocr INFO:     unclip_ratio : 1.5
+[2024/05/18 01:27:06] wzocr INFO: Train : 
+[2024/05/18 01:27:06] wzocr INFO:     dataset : 
+[2024/05/18 01:27:06] wzocr INFO:         data_dir : ./dataset/icdar2015/text_localization/
+[2024/05/18 01:27:06] wzocr INFO:         label_file_list : ['./dataset/icdar2015/text_localization/train_icdar2015_label.txt']
+[2024/05/18 01:27:06] wzocr INFO:         name : SimpleDataSet
+[2024/05/18 01:27:06] wzocr INFO:         ratio_list : [1.0]
+[2024/05/18 01:27:06] wzocr INFO:         transforms : 
+[2024/05/18 01:27:06] wzocr INFO:             DecodeImage : 
+[2024/05/18 01:27:06] wzocr INFO:                 channel_first : False
+[2024/05/18 01:27:06] wzocr INFO:                 img_mode : BGR
+[2024/05/18 01:27:06] wzocr INFO:             DetLabelEncode : None
+[2024/05/18 01:27:06] wzocr INFO:             IaaAugment : 
+[2024/05/18 01:27:06] wzocr INFO:                 augmenter_args : 
+[2024/05/18 01:27:06] wzocr INFO:                     args : 
+[2024/05/18 01:27:06] wzocr INFO:                         p : 0.5
+[2024/05/18 01:27:06] wzocr INFO:                     type : Fliplr
+[2024/05/18 01:27:06] wzocr INFO:                     args : 
+[2024/05/18 01:27:06] wzocr INFO:                         rotate : [-10, 10]
+[2024/05/18 01:27:06] wzocr INFO:                     type : Affine
+[2024/05/18 01:27:06] wzocr INFO:                     args : 
+[2024/05/18 01:27:06] wzocr INFO:                         size : [0.5, 3]
+[2024/05/18 01:27:06] wzocr INFO:                     type : Resize
+[2024/05/18 01:27:06] wzocr INFO:             EastRandomCropData : 
+[2024/05/18 01:27:06] wzocr INFO:                 keep_ratio : True
+[2024/05/18 01:27:06] wzocr INFO:                 max_tries : 50
+[2024/05/18 01:27:06] wzocr INFO:                 size : [640, 640]
+[2024/05/18 01:27:06] wzocr INFO:             MakeBorderMap : 
+[2024/05/18 01:27:06] wzocr INFO:                 shrink_ratio : 0.4
+[2024/05/18 01:27:06] wzocr INFO:                 thresh_max : 0.7
+[2024/05/18 01:27:06] wzocr INFO:                 thresh_min : 0.3
+[2024/05/18 01:27:06] wzocr INFO:             MakeShrinkMap : 
+[2024/05/18 01:27:06] wzocr INFO:                 min_text_size : 8
+[2024/05/18 01:27:06] wzocr INFO:                 shrink_ratio : 0.4
+[2024/05/18 01:27:06] wzocr INFO:             NormalizeImage : 
+[2024/05/18 01:27:06] wzocr INFO:                 mean : [0.485, 0.456, 0.406]
+[2024/05/18 01:27:06] wzocr INFO:                 order : hwc
+[2024/05/18 01:27:06] wzocr INFO:                 scale : 1./255.
+[2024/05/18 01:27:06] wzocr INFO:                 std : [0.229, 0.224, 0.225]
+[2024/05/18 01:27:06] wzocr INFO:             ToCHWImage : None
+[2024/05/18 01:27:06] wzocr INFO:             KeepKeys : 
+[2024/05/18 01:27:06] wzocr INFO:                 keep_keys : ['image', 'threshold_map', 'threshold_mask', 'shrink_map', 'shrink_mask']
+[2024/05/18 01:27:06] wzocr INFO:     loader : 
+[2024/05/18 01:27:06] wzocr INFO:         batch_size_per_card : 6
+[2024/05/18 01:27:06] wzocr INFO:         drop_last : False
+[2024/05/18 01:27:06] wzocr INFO:         num_workers : 4
+[2024/05/18 01:27:06] wzocr INFO:         shuffle : True
+[2024/05/18 01:27:06] wzocr INFO: train with pytorch 2.3.0+cpu and device cpu
+[2024/05/18 01:27:06] wzocr INFO: Initialize indexs of datasets:['./dataset/icdar2015/text_localization/train_icdar2015_label.txt']
+[2024/05/18 01:27:06] wzocr INFO: Initialize indexs of datasets:['./dataset/icdar2015/text_localization/test_icdar2015_label.txt']
+[2024/05/18 01:27:06] wzocr INFO: train dataloader has 19 iters
+[2024/05/18 01:27:06] wzocr INFO: valid dataloader has 31 iters
+[2024/05/18 01:27:06] wzocr INFO: During the training process, after the 0th iteration, an evaluation is run every 50 iterations
+[2024/05/18 01:39:05] wzocr INFO: Architecture : 
+[2024/05/18 01:39:05] wzocr INFO:     Backbone : 
+[2024/05/18 01:39:05] wzocr INFO:         block : Bottleneck
+[2024/05/18 01:39:05] wzocr INFO:         name : ResNet
+[2024/05/18 01:39:05] wzocr INFO:         num_blocks : [3, 4, 6, 3]
+[2024/05/18 01:39:05] wzocr INFO:     Head : 
+[2024/05/18 01:39:05] wzocr INFO:         k : 50
+[2024/05/18 01:39:05] wzocr INFO:         name : DBHead
+[2024/05/18 01:39:05] wzocr INFO:     Neck : 
+[2024/05/18 01:39:05] wzocr INFO:         name : DBFPN
+[2024/05/18 01:39:05] wzocr INFO:         out_channels : 256
+[2024/05/18 01:39:05] wzocr INFO:     Transform : None
+[2024/05/18 01:39:05] wzocr INFO:     algorithm : DB
+[2024/05/18 01:39:05] wzocr INFO:     model_type : det
+[2024/05/18 01:39:05] wzocr INFO: Eval : 
+[2024/05/18 01:39:05] wzocr INFO:     dataset : 
+[2024/05/18 01:39:05] wzocr INFO:         data_dir : ./dataset/icdar2015/text_localization/
+[2024/05/18 01:39:05] wzocr INFO:         label_file_list : ['./dataset/icdar2015/text_localization/test_icdar2015_label.txt']
+[2024/05/18 01:39:05] wzocr INFO:         name : SimpleDataSet
+[2024/05/18 01:39:05] wzocr INFO:         transforms : 
+[2024/05/18 01:39:05] wzocr INFO:             DecodeImage : 
+[2024/05/18 01:39:05] wzocr INFO:                 channel_first : False
+[2024/05/18 01:39:05] wzocr INFO:                 img_mode : BGR
+[2024/05/18 01:39:05] wzocr INFO:             DetLabelEncode : None
+[2024/05/18 01:39:05] wzocr INFO:             DetResizeForTest : 
+[2024/05/18 01:39:05] wzocr INFO:                 image_shape : [736, 1280]
+[2024/05/18 01:39:05] wzocr INFO:             NormalizeImage : 
+[2024/05/18 01:39:05] wzocr INFO:                 mean : [0.485, 0.456, 0.406]
+[2024/05/18 01:39:05] wzocr INFO:                 order : hwc
+[2024/05/18 01:39:05] wzocr INFO:                 scale : 1./255.
+[2024/05/18 01:39:05] wzocr INFO:                 std : [0.229, 0.224, 0.225]
+[2024/05/18 01:39:05] wzocr INFO:             ToCHWImage : None
+[2024/05/18 01:39:05] wzocr INFO:             KeepKeys : 
+[2024/05/18 01:39:05] wzocr INFO:                 keep_keys : ['image', 'shape', 'polys', 'ignore_tags']
+[2024/05/18 01:39:05] wzocr INFO:     loader : 
+[2024/05/18 01:39:05] wzocr INFO:         batch_size_per_card : 1
+[2024/05/18 01:39:05] wzocr INFO:         drop_last : False
+[2024/05/18 01:39:05] wzocr INFO:         num_workers : 2
+[2024/05/18 01:39:05] wzocr INFO:         shuffle : False
+[2024/05/18 01:39:05] wzocr INFO: Global : 
+[2024/05/18 01:39:05] wzocr INFO:     cal_metric_during_train : False
+[2024/05/18 01:39:05] wzocr INFO:     checkpoints : ./output/det_r50_vd/best_accuracy
+[2024/05/18 01:39:05] wzocr INFO:     epoch_num : 1200
+[2024/05/18 01:39:05] wzocr INFO:     eval_batch_step : [0, 50, 2000]
+[2024/05/18 01:39:05] wzocr INFO:     gpu_id : 0
+[2024/05/18 01:39:05] wzocr INFO:     infer_img : doc/imgs_en/img_10.jpg
+[2024/05/18 01:39:05] wzocr INFO:     log_smooth_window : 20
+[2024/05/18 01:39:05] wzocr INFO:     pretrained_model : ./pretrain_models/ResNet50_vd_ssld_pretrained
+[2024/05/18 01:39:05] wzocr INFO:     print_batch_step : 10
+[2024/05/18 01:39:05] wzocr INFO:     save_epoch_step : 100
+[2024/05/18 01:39:05] wzocr INFO:     save_inference_dir : None
+[2024/05/18 01:39:05] wzocr INFO:     save_model_dir : ./output/det_r50_vd/
+[2024/05/18 01:39:05] wzocr INFO:     save_res_path : ./output/det_db/predicts_db.txt
+[2024/05/18 01:39:05] wzocr INFO:     seed : 1024
+[2024/05/18 01:39:05] wzocr INFO:     use_gpu : False
+[2024/05/18 01:39:05] wzocr INFO:     use_tensorboard : True
+[2024/05/18 01:39:05] wzocr INFO: Loss : 
+[2024/05/18 01:39:05] wzocr INFO:     alpha : 5
+[2024/05/18 01:39:05] wzocr INFO:     balance_loss : True
+[2024/05/18 01:39:05] wzocr INFO:     beta : 10
+[2024/05/18 01:39:05] wzocr INFO:     main_loss_type : DiceLoss
+[2024/05/18 01:39:05] wzocr INFO:     name : DBLoss
+[2024/05/18 01:39:05] wzocr INFO:     ohem_ratio : 3
+[2024/05/18 01:39:05] wzocr INFO: Metric : 
+[2024/05/18 01:39:05] wzocr INFO:     main_indicator : hmean
+[2024/05/18 01:39:05] wzocr INFO:     name : DetMetric
+[2024/05/18 01:39:05] wzocr INFO: Optimizer : 
+[2024/05/18 01:39:05] wzocr INFO:     args : 
+[2024/05/18 01:39:05] wzocr INFO:         amsgrad : True
+[2024/05/18 01:39:05] wzocr INFO:         lr : 0.001
+[2024/05/18 01:39:05] wzocr INFO:         weight_decay : 0
+[2024/05/18 01:39:05] wzocr INFO:     lr_scheduler : 
+[2024/05/18 01:39:05] wzocr INFO:         args : 
+[2024/05/18 01:39:05] wzocr INFO:             warmup_epoch : 3
+[2024/05/18 01:39:05] wzocr INFO:         type : WarmupPolyLR
+[2024/05/18 01:39:05] wzocr INFO:     type : Adam
+[2024/05/18 01:39:05] wzocr INFO: PostProcess : 
+[2024/05/18 01:39:05] wzocr INFO:     box_thresh : 0.7
+[2024/05/18 01:39:05] wzocr INFO:     max_candidates : 1000
+[2024/05/18 01:39:05] wzocr INFO:     name : DBPostProcess
+[2024/05/18 01:39:05] wzocr INFO:     thresh : 0.3
+[2024/05/18 01:39:05] wzocr INFO:     unclip_ratio : 1.5
+[2024/05/18 01:39:05] wzocr INFO: Train : 
+[2024/05/18 01:39:05] wzocr INFO:     dataset : 
+[2024/05/18 01:39:05] wzocr INFO:         data_dir : ./dataset/icdar2015/text_localization/
+[2024/05/18 01:39:05] wzocr INFO:         label_file_list : ['./dataset/icdar2015/text_localization/train_icdar2015_label.txt']
+[2024/05/18 01:39:05] wzocr INFO:         name : SimpleDataSet
+[2024/05/18 01:39:05] wzocr INFO:         ratio_list : [1.0]
+[2024/05/18 01:39:05] wzocr INFO:         transforms : 
+[2024/05/18 01:39:05] wzocr INFO:             DecodeImage : 
+[2024/05/18 01:39:05] wzocr INFO:                 channel_first : False
+[2024/05/18 01:39:05] wzocr INFO:                 img_mode : BGR
+[2024/05/18 01:39:05] wzocr INFO:             DetLabelEncode : None
+[2024/05/18 01:39:05] wzocr INFO:             IaaAugment : 
+[2024/05/18 01:39:05] wzocr INFO:                 augmenter_args : 
+[2024/05/18 01:39:05] wzocr INFO:                     args : 
+[2024/05/18 01:39:05] wzocr INFO:                         p : 0.5
+[2024/05/18 01:39:05] wzocr INFO:                     type : Fliplr
+[2024/05/18 01:39:05] wzocr INFO:                     args : 
+[2024/05/18 01:39:05] wzocr INFO:                         rotate : [-10, 10]
+[2024/05/18 01:39:05] wzocr INFO:                     type : Affine
+[2024/05/18 01:39:05] wzocr INFO:                     args : 
+[2024/05/18 01:39:05] wzocr INFO:                         size : [0.5, 3]
+[2024/05/18 01:39:05] wzocr INFO:                     type : Resize
+[2024/05/18 01:39:05] wzocr INFO:             EastRandomCropData : 
+[2024/05/18 01:39:05] wzocr INFO:                 keep_ratio : True
+[2024/05/18 01:39:05] wzocr INFO:                 max_tries : 50
+[2024/05/18 01:39:05] wzocr INFO:                 size : [640, 640]
+[2024/05/18 01:39:05] wzocr INFO:             MakeBorderMap : 
+[2024/05/18 01:39:05] wzocr INFO:                 shrink_ratio : 0.4
+[2024/05/18 01:39:05] wzocr INFO:                 thresh_max : 0.7
+[2024/05/18 01:39:05] wzocr INFO:                 thresh_min : 0.3
+[2024/05/18 01:39:05] wzocr INFO:             MakeShrinkMap : 
+[2024/05/18 01:39:05] wzocr INFO:                 min_text_size : 8
+[2024/05/18 01:39:05] wzocr INFO:                 shrink_ratio : 0.4
+[2024/05/18 01:39:05] wzocr INFO:             NormalizeImage : 
+[2024/05/18 01:39:05] wzocr INFO:                 mean : [0.485, 0.456, 0.406]
+[2024/05/18 01:39:05] wzocr INFO:                 order : hwc
+[2024/05/18 01:39:05] wzocr INFO:                 scale : 1./255.
+[2024/05/18 01:39:05] wzocr INFO:                 std : [0.229, 0.224, 0.225]
+[2024/05/18 01:39:05] wzocr INFO:             ToCHWImage : None
+[2024/05/18 01:39:05] wzocr INFO:             KeepKeys : 
+[2024/05/18 01:39:05] wzocr INFO:                 keep_keys : ['image', 'threshold_map', 'threshold_mask', 'shrink_map', 'shrink_mask']
+[2024/05/18 01:39:05] wzocr INFO:     loader : 
+[2024/05/18 01:39:05] wzocr INFO:         batch_size_per_card : 6
+[2024/05/18 01:39:05] wzocr INFO:         drop_last : False
+[2024/05/18 01:39:05] wzocr INFO:         num_workers : 4
+[2024/05/18 01:39:05] wzocr INFO:         shuffle : True
+[2024/05/18 01:39:05] wzocr INFO: train with pytorch 2.3.0+cpu and device cpu
+[2024/05/18 01:39:05] wzocr INFO: Initialize indexs of datasets:['./dataset/icdar2015/text_localization/train_icdar2015_label.txt']
+[2024/05/18 01:39:05] wzocr INFO: Initialize indexs of datasets:['./dataset/icdar2015/text_localization/test_icdar2015_label.txt']
+[2024/05/18 01:39:05] wzocr INFO: train dataloader has 3 iters
+[2024/05/18 01:39:05] wzocr INFO: valid dataloader has 6 iters
+[2024/05/18 01:39:05] wzocr INFO: During the training process, after the 0th iteration, an evaluation is run every 50 iterations
+[2024/05/18 01:40:39] wzocr INFO: epoch: [1/1200], global_step: 1, lr: 0.000333, loss: 219955424.000000, loss_shrink_maps: 219955424.000000, loss_threshold_maps: 3.117698, loss_binary_maps: 0.986496, 
+ 								 ips: 0.07257 samples/s, eta: 3 days, 10:33:31
+[2024/05/18 01:41:24] wzocr INFO: epoch: [1/1200], global_step: 2, lr: 0.000370, loss: 174867104.000000, loss_shrink_maps: 174867104.000000, loss_threshold_maps: 2.923384, loss_binary_maps: 0.971548, 
+ 								 ips: 0.13372 samples/s, eta: 2 days, 15:41:02
+[2024/05/18 01:42:45] wzocr INFO: epoch: [2/1200], global_step: 3, lr: 0.000407, loss: 133884560.000000, loss_shrink_maps: 133884560.000000, loss_threshold_maps: 2.729071, loss_binary_maps: 0.956599, 
+ 								 ips: 0.07470 samples/s, eta: 2 days, 21:08:11
+[2024/05/18 01:43:24] wzocr INFO: epoch: [2/1200], global_step: 4, lr: 0.000444, loss: 131831672.000000, loss_shrink_maps: 131831672.000000, loss_threshold_maps: 2.344358, loss_binary_maps: 0.954173, 
+ 								 ips: 0.15315 samples/s, eta: 2 days, 13:37:30
+[2024/05/18 02:26:28] wzocr INFO: Architecture : 
+[2024/05/18 02:26:28] wzocr INFO:     Backbone : 
+[2024/05/18 02:26:28] wzocr INFO:         block : Bottleneck
+[2024/05/18 02:26:28] wzocr INFO:         name : ResNet
+[2024/05/18 02:26:28] wzocr INFO:         num_blocks : [3, 4, 6, 3]
+[2024/05/18 02:26:28] wzocr INFO:     Head : 
+[2024/05/18 02:26:28] wzocr INFO:         k : 50
+[2024/05/18 02:26:28] wzocr INFO:         name : DBHead
+[2024/05/18 02:26:28] wzocr INFO:     Neck : 
+[2024/05/18 02:26:28] wzocr INFO:         name : DBFPN
+[2024/05/18 02:26:28] wzocr INFO:         out_channels : 256
+[2024/05/18 02:26:28] wzocr INFO:     Transform : None
+[2024/05/18 02:26:28] wzocr INFO:     algorithm : DB
+[2024/05/18 02:26:28] wzocr INFO:     model_type : det
+[2024/05/18 02:26:28] wzocr INFO: Eval : 
+[2024/05/18 02:26:28] wzocr INFO:     dataset : 
+[2024/05/18 02:26:28] wzocr INFO:         data_dir : ./dataset/icdar2015/text_localization/
+[2024/05/18 02:26:28] wzocr INFO:         label_file_list : ['./dataset/icdar2015/text_localization/test_icdar2015_label.txt']
+[2024/05/18 02:26:28] wzocr INFO:         name : SimpleDataSet
+[2024/05/18 02:26:28] wzocr INFO:         transforms : 
+[2024/05/18 02:26:28] wzocr INFO:             DecodeImage : 
+[2024/05/18 02:26:28] wzocr INFO:                 channel_first : False
+[2024/05/18 02:26:28] wzocr INFO:                 img_mode : BGR
+[2024/05/18 02:26:28] wzocr INFO:             DetLabelEncode : None
+[2024/05/18 02:26:28] wzocr INFO:             DetResizeForTest : 
+[2024/05/18 02:26:28] wzocr INFO:                 image_shape : [736, 1280]
+[2024/05/18 02:26:28] wzocr INFO:             NormalizeImage : 
+[2024/05/18 02:26:28] wzocr INFO:                 mean : [0.485, 0.456, 0.406]
+[2024/05/18 02:26:28] wzocr INFO:                 order : hwc
+[2024/05/18 02:26:28] wzocr INFO:                 scale : 1./255.
+[2024/05/18 02:26:28] wzocr INFO:                 std : [0.229, 0.224, 0.225]
+[2024/05/18 02:26:28] wzocr INFO:             ToCHWImage : None
+[2024/05/18 02:26:28] wzocr INFO:             KeepKeys : 
+[2024/05/18 02:26:28] wzocr INFO:                 keep_keys : ['image', 'shape', 'polys', 'ignore_tags']
+[2024/05/18 02:26:28] wzocr INFO:     loader : 
+[2024/05/18 02:26:28] wzocr INFO:         batch_size_per_card : 1
+[2024/05/18 02:26:28] wzocr INFO:         drop_last : False
+[2024/05/18 02:26:28] wzocr INFO:         num_workers : 2
+[2024/05/18 02:26:28] wzocr INFO:         shuffle : False
+[2024/05/18 02:26:28] wzocr INFO: Global : 
+[2024/05/18 02:26:28] wzocr INFO:     cal_metric_during_train : False
+[2024/05/18 02:26:28] wzocr INFO:     checkpoints : ./output/det_r50_vd/best_accuracy
+[2024/05/18 02:26:28] wzocr INFO:     epoch_num : 1200
+[2024/05/18 02:26:28] wzocr INFO:     eval_batch_step : [0, 50, 2000]
+[2024/05/18 02:26:28] wzocr INFO:     gpu_id : 0
+[2024/05/18 02:26:28] wzocr INFO:     infer_img : doc/imgs_en/img_10.jpg
+[2024/05/18 02:26:28] wzocr INFO:     log_smooth_window : 20
+[2024/05/18 02:26:28] wzocr INFO:     pretrained_model : ./pretrain_models/ResNet50_vd_ssld_pretrained
+[2024/05/18 02:26:28] wzocr INFO:     print_batch_step : 10
+[2024/05/18 02:26:28] wzocr INFO:     save_epoch_step : 100
+[2024/05/18 02:26:28] wzocr INFO:     save_inference_dir : None
+[2024/05/18 02:26:28] wzocr INFO:     save_model_dir : ./output/det_r50_vd/
+[2024/05/18 02:26:28] wzocr INFO:     save_res_path : ./output/det_db/predicts_db.txt
+[2024/05/18 02:26:28] wzocr INFO:     seed : 1024
+[2024/05/18 02:26:28] wzocr INFO:     use_gpu : False
+[2024/05/18 02:26:28] wzocr INFO:     use_tensorboard : True
+[2024/05/18 02:26:28] wzocr INFO: Loss : 
+[2024/05/18 02:26:28] wzocr INFO:     alpha : 5
+[2024/05/18 02:26:28] wzocr INFO:     balance_loss : True
+[2024/05/18 02:26:28] wzocr INFO:     beta : 10
+[2024/05/18 02:26:28] wzocr INFO:     main_loss_type : DiceLoss
+[2024/05/18 02:26:28] wzocr INFO:     name : DBLoss
+[2024/05/18 02:26:28] wzocr INFO:     ohem_ratio : 3
+[2024/05/18 02:26:28] wzocr INFO: Metric : 
+[2024/05/18 02:26:28] wzocr INFO:     main_indicator : hmean
+[2024/05/18 02:26:28] wzocr INFO:     name : DetMetric
+[2024/05/18 02:26:28] wzocr INFO: Optimizer : 
+[2024/05/18 02:26:28] wzocr INFO:     args : 
+[2024/05/18 02:26:28] wzocr INFO:         amsgrad : True
+[2024/05/18 02:26:28] wzocr INFO:         lr : 0.001
+[2024/05/18 02:26:28] wzocr INFO:         weight_decay : 0
+[2024/05/18 02:26:28] wzocr INFO:     lr_scheduler : 
+[2024/05/18 02:26:28] wzocr INFO:         args : 
+[2024/05/18 02:26:28] wzocr INFO:             warmup_epoch : 3
+[2024/05/18 02:26:28] wzocr INFO:         type : WarmupPolyLR
+[2024/05/18 02:26:28] wzocr INFO:     type : Adam
+[2024/05/18 02:26:28] wzocr INFO: PostProcess : 
+[2024/05/18 02:26:28] wzocr INFO:     box_thresh : 0.7
+[2024/05/18 02:26:28] wzocr INFO:     max_candidates : 1000
+[2024/05/18 02:26:28] wzocr INFO:     name : DBPostProcess
+[2024/05/18 02:26:28] wzocr INFO:     thresh : 0.3
+[2024/05/18 02:26:28] wzocr INFO:     unclip_ratio : 1.5
+[2024/05/18 02:26:28] wzocr INFO: Train : 
+[2024/05/18 02:26:28] wzocr INFO:     dataset : 
+[2024/05/18 02:26:28] wzocr INFO:         data_dir : ./dataset/icdar2015/text_localization/
+[2024/05/18 02:26:28] wzocr INFO:         label_file_list : ['./dataset/icdar2015/text_localization/train_icdar2015_label.txt']
+[2024/05/18 02:26:28] wzocr INFO:         name : SimpleDataSet
+[2024/05/18 02:26:28] wzocr INFO:         ratio_list : [1.0]
+[2024/05/18 02:26:28] wzocr INFO:         transforms : 
+[2024/05/18 02:26:28] wzocr INFO:             DecodeImage : 
+[2024/05/18 02:26:28] wzocr INFO:                 channel_first : False
+[2024/05/18 02:26:28] wzocr INFO:                 img_mode : BGR
+[2024/05/18 02:26:28] wzocr INFO:             DetLabelEncode : None
+[2024/05/18 02:26:28] wzocr INFO:             IaaAugment : 
+[2024/05/18 02:26:28] wzocr INFO:                 augmenter_args : 
+[2024/05/18 02:26:28] wzocr INFO:                     args : 
+[2024/05/18 02:26:28] wzocr INFO:                         p : 0.5
+[2024/05/18 02:26:28] wzocr INFO:                     type : Fliplr
+[2024/05/18 02:26:28] wzocr INFO:                     args : 
+[2024/05/18 02:26:28] wzocr INFO:                         rotate : [-10, 10]
+[2024/05/18 02:26:28] wzocr INFO:                     type : Affine
+[2024/05/18 02:26:28] wzocr INFO:                     args : 
+[2024/05/18 02:26:28] wzocr INFO:                         size : [0.5, 3]
+[2024/05/18 02:26:28] wzocr INFO:                     type : Resize
+[2024/05/18 02:26:28] wzocr INFO:             EastRandomCropData : 
+[2024/05/18 02:26:28] wzocr INFO:                 keep_ratio : True
+[2024/05/18 02:26:28] wzocr INFO:                 max_tries : 50
+[2024/05/18 02:26:28] wzocr INFO:                 size : [640, 640]
+[2024/05/18 02:26:28] wzocr INFO:             MakeBorderMap : 
+[2024/05/18 02:26:28] wzocr INFO:                 shrink_ratio : 0.4
+[2024/05/18 02:26:28] wzocr INFO:                 thresh_max : 0.7
+[2024/05/18 02:26:28] wzocr INFO:                 thresh_min : 0.3
+[2024/05/18 02:26:28] wzocr INFO:             MakeShrinkMap : 
+[2024/05/18 02:26:28] wzocr INFO:                 min_text_size : 8
+[2024/05/18 02:26:28] wzocr INFO:                 shrink_ratio : 0.4
+[2024/05/18 02:26:28] wzocr INFO:             NormalizeImage : 
+[2024/05/18 02:26:28] wzocr INFO:                 mean : [0.485, 0.456, 0.406]
+[2024/05/18 02:26:28] wzocr INFO:                 order : hwc
+[2024/05/18 02:26:28] wzocr INFO:                 scale : 1./255.
+[2024/05/18 02:26:28] wzocr INFO:                 std : [0.229, 0.224, 0.225]
+[2024/05/18 02:26:28] wzocr INFO:             ToCHWImage : None
+[2024/05/18 02:26:28] wzocr INFO:             KeepKeys : 
+[2024/05/18 02:26:28] wzocr INFO:                 keep_keys : ['image', 'threshold_map', 'threshold_mask', 'shrink_map', 'shrink_mask']
+[2024/05/18 02:26:28] wzocr INFO:     loader : 
+[2024/05/18 02:26:28] wzocr INFO:         batch_size_per_card : 6
+[2024/05/18 02:26:28] wzocr INFO:         drop_last : False
+[2024/05/18 02:26:28] wzocr INFO:         num_workers : 4
+[2024/05/18 02:26:28] wzocr INFO:         shuffle : True
+[2024/05/18 02:26:28] wzocr INFO: train with pytorch 2.3.0+cpu and device cpu
+[2024/05/18 02:26:28] wzocr INFO: Initialize indexs of datasets:['./dataset/icdar2015/text_localization/train_icdar2015_label.txt']
+[2024/05/18 02:26:28] wzocr INFO: Initialize indexs of datasets:['./dataset/icdar2015/text_localization/test_icdar2015_label.txt']
+[2024/05/18 02:26:29] wzocr INFO: train dataloader has 3 iters
+[2024/05/18 02:26:29] wzocr INFO: valid dataloader has 6 iters
+[2024/05/18 02:26:29] wzocr INFO: During the training process, after the 0th iteration, an evaluation is run every 50 iterations
+[2024/05/18 02:28:08] wzocr INFO: epoch: [1/1200], global_step: 1, lr: 0.000333, loss: 219955424.000000, loss_shrink_maps: 219955424.000000, loss_threshold_maps: 3.117698, loss_binary_maps: 0.986496, 
+ 								 ips: 0.06949 samples/s, eta: 3 days, 14:13:28
+[2024/05/18 02:30:35] wzocr INFO: Architecture : 
+[2024/05/18 02:30:35] wzocr INFO:     Backbone : 
+[2024/05/18 02:30:35] wzocr INFO:         block : Bottleneck
+[2024/05/18 02:30:35] wzocr INFO:         name : ResNet
+[2024/05/18 02:30:35] wzocr INFO:         num_blocks : [3, 4, 6, 3]
+[2024/05/18 02:30:35] wzocr INFO:     Head : 
+[2024/05/18 02:30:35] wzocr INFO:         k : 50
+[2024/05/18 02:30:35] wzocr INFO:         name : DBHead
+[2024/05/18 02:30:35] wzocr INFO:     Neck : 
+[2024/05/18 02:30:35] wzocr INFO:         name : DBFPN
+[2024/05/18 02:30:35] wzocr INFO:         out_channels : 256
+[2024/05/18 02:30:35] wzocr INFO:     Transform : None
+[2024/05/18 02:30:35] wzocr INFO:     algorithm : DB
+[2024/05/18 02:30:35] wzocr INFO:     model_type : det
+[2024/05/18 02:30:35] wzocr INFO: Eval : 
+[2024/05/18 02:30:35] wzocr INFO:     dataset : 
+[2024/05/18 02:30:35] wzocr INFO:         data_dir : ./dataset/icdar2015/text_localization/
+[2024/05/18 02:30:35] wzocr INFO:         label_file_list : ['./dataset/icdar2015/text_localization/test_icdar2015_label.txt']
+[2024/05/18 02:30:35] wzocr INFO:         name : SimpleDataSet
+[2024/05/18 02:30:35] wzocr INFO:         transforms : 
+[2024/05/18 02:30:35] wzocr INFO:             DecodeImage : 
+[2024/05/18 02:30:35] wzocr INFO:                 channel_first : False
+[2024/05/18 02:30:35] wzocr INFO:                 img_mode : BGR
+[2024/05/18 02:30:35] wzocr INFO:             DetLabelEncode : None
+[2024/05/18 02:30:35] wzocr INFO:             DetResizeForTest : 
+[2024/05/18 02:30:35] wzocr INFO:                 image_shape : [736, 1280]
+[2024/05/18 02:30:35] wzocr INFO:             NormalizeImage : 
+[2024/05/18 02:30:35] wzocr INFO:                 mean : [0.485, 0.456, 0.406]
+[2024/05/18 02:30:35] wzocr INFO:                 order : hwc
+[2024/05/18 02:30:35] wzocr INFO:                 scale : 1./255.
+[2024/05/18 02:30:35] wzocr INFO:                 std : [0.229, 0.224, 0.225]
+[2024/05/18 02:30:35] wzocr INFO:             ToCHWImage : None
+[2024/05/18 02:30:35] wzocr INFO:             KeepKeys : 
+[2024/05/18 02:30:35] wzocr INFO:                 keep_keys : ['image', 'shape', 'polys', 'ignore_tags']
+[2024/05/18 02:30:35] wzocr INFO:     loader : 
+[2024/05/18 02:30:35] wzocr INFO:         batch_size_per_card : 1
+[2024/05/18 02:30:35] wzocr INFO:         drop_last : False
+[2024/05/18 02:30:35] wzocr INFO:         num_workers : 2
+[2024/05/18 02:30:35] wzocr INFO:         shuffle : False
+[2024/05/18 02:30:35] wzocr INFO: Global : 
+[2024/05/18 02:30:35] wzocr INFO:     cal_metric_during_train : False
+[2024/05/18 02:30:35] wzocr INFO:     checkpoints : ./output/det_r50_vd/best_accuracy
+[2024/05/18 02:30:35] wzocr INFO:     epoch_num : 1200
+[2024/05/18 02:30:35] wzocr INFO:     eval_batch_step : [0, 50, 2000]
+[2024/05/18 02:30:35] wzocr INFO:     gpu_id : 0
+[2024/05/18 02:30:35] wzocr INFO:     infer_img : doc/imgs_en/img_10.jpg
+[2024/05/18 02:30:35] wzocr INFO:     log_smooth_window : 20
+[2024/05/18 02:30:35] wzocr INFO:     pretrained_model : ./pretrain_models/ResNet50_vd_ssld_pretrained
+[2024/05/18 02:30:35] wzocr INFO:     print_batch_step : 10
+[2024/05/18 02:30:35] wzocr INFO:     save_epoch_step : 100
+[2024/05/18 02:30:35] wzocr INFO:     save_inference_dir : None
+[2024/05/18 02:30:35] wzocr INFO:     save_model_dir : ./output/det_r50_vd/
+[2024/05/18 02:30:35] wzocr INFO:     save_res_path : ./output/det_db/predicts_db.txt
+[2024/05/18 02:30:35] wzocr INFO:     seed : 1024
+[2024/05/18 02:30:35] wzocr INFO:     use_gpu : False
+[2024/05/18 02:30:35] wzocr INFO:     use_tensorboard : True
+[2024/05/18 02:30:35] wzocr INFO: Loss : 
+[2024/05/18 02:30:35] wzocr INFO:     alpha : 5
+[2024/05/18 02:30:35] wzocr INFO:     balance_loss : True
+[2024/05/18 02:30:35] wzocr INFO:     beta : 10
+[2024/05/18 02:30:35] wzocr INFO:     main_loss_type : DiceLoss
+[2024/05/18 02:30:35] wzocr INFO:     name : DBLoss
+[2024/05/18 02:30:35] wzocr INFO:     ohem_ratio : 3
+[2024/05/18 02:30:35] wzocr INFO: Metric : 
+[2024/05/18 02:30:35] wzocr INFO:     main_indicator : hmean
+[2024/05/18 02:30:35] wzocr INFO:     name : DetMetric
+[2024/05/18 02:30:35] wzocr INFO: Optimizer : 
+[2024/05/18 02:30:35] wzocr INFO:     args : 
+[2024/05/18 02:30:35] wzocr INFO:         amsgrad : True
+[2024/05/18 02:30:35] wzocr INFO:         lr : 0.001
+[2024/05/18 02:30:35] wzocr INFO:         weight_decay : 0
+[2024/05/18 02:30:35] wzocr INFO:     lr_scheduler : 
+[2024/05/18 02:30:35] wzocr INFO:         args : 
+[2024/05/18 02:30:35] wzocr INFO:             warmup_epoch : 3
+[2024/05/18 02:30:35] wzocr INFO:         type : WarmupPolyLR
+[2024/05/18 02:30:35] wzocr INFO:     type : Adam
+[2024/05/18 02:30:35] wzocr INFO: PostProcess : 
+[2024/05/18 02:30:35] wzocr INFO:     box_thresh : 0.7
+[2024/05/18 02:30:35] wzocr INFO:     max_candidates : 1000
+[2024/05/18 02:30:35] wzocr INFO:     name : DBPostProcess
+[2024/05/18 02:30:35] wzocr INFO:     thresh : 0.3
+[2024/05/18 02:30:35] wzocr INFO:     unclip_ratio : 1.5
+[2024/05/18 02:30:35] wzocr INFO: Train : 
+[2024/05/18 02:30:35] wzocr INFO:     dataset : 
+[2024/05/18 02:30:35] wzocr INFO:         data_dir : ./dataset/icdar2015/text_localization/
+[2024/05/18 02:30:35] wzocr INFO:         label_file_list : ['./dataset/icdar2015/text_localization/train_icdar2015_label.txt']
+[2024/05/18 02:30:35] wzocr INFO:         name : SimpleDataSet
+[2024/05/18 02:30:35] wzocr INFO:         ratio_list : [1.0]
+[2024/05/18 02:30:35] wzocr INFO:         transforms : 
+[2024/05/18 02:30:35] wzocr INFO:             DecodeImage : 
+[2024/05/18 02:30:35] wzocr INFO:                 channel_first : False
+[2024/05/18 02:30:35] wzocr INFO:                 img_mode : BGR
+[2024/05/18 02:30:35] wzocr INFO:             DetLabelEncode : None
+[2024/05/18 02:30:35] wzocr INFO:             IaaAugment : 
+[2024/05/18 02:30:35] wzocr INFO:                 augmenter_args : 
+[2024/05/18 02:30:35] wzocr INFO:                     args : 
+[2024/05/18 02:30:35] wzocr INFO:                         p : 0.5
+[2024/05/18 02:30:35] wzocr INFO:                     type : Fliplr
+[2024/05/18 02:30:35] wzocr INFO:                     args : 
+[2024/05/18 02:30:35] wzocr INFO:                         rotate : [-10, 10]
+[2024/05/18 02:30:35] wzocr INFO:                     type : Affine
+[2024/05/18 02:30:35] wzocr INFO:                     args : 
+[2024/05/18 02:30:35] wzocr INFO:                         size : [0.5, 3]
+[2024/05/18 02:30:35] wzocr INFO:                     type : Resize
+[2024/05/18 02:30:35] wzocr INFO:             EastRandomCropData : 
+[2024/05/18 02:30:35] wzocr INFO:                 keep_ratio : True
+[2024/05/18 02:30:35] wzocr INFO:                 max_tries : 50
+[2024/05/18 02:30:35] wzocr INFO:                 size : [640, 640]
+[2024/05/18 02:30:35] wzocr INFO:             MakeBorderMap : 
+[2024/05/18 02:30:35] wzocr INFO:                 shrink_ratio : 0.4
+[2024/05/18 02:30:35] wzocr INFO:                 thresh_max : 0.7
+[2024/05/18 02:30:35] wzocr INFO:                 thresh_min : 0.3
+[2024/05/18 02:30:35] wzocr INFO:             MakeShrinkMap : 
+[2024/05/18 02:30:35] wzocr INFO:                 min_text_size : 8
+[2024/05/18 02:30:35] wzocr INFO:                 shrink_ratio : 0.4
+[2024/05/18 02:30:35] wzocr INFO:             NormalizeImage : 
+[2024/05/18 02:30:35] wzocr INFO:                 mean : [0.485, 0.456, 0.406]
+[2024/05/18 02:30:35] wzocr INFO:                 order : hwc
+[2024/05/18 02:30:35] wzocr INFO:                 scale : 1./255.
+[2024/05/18 02:30:35] wzocr INFO:                 std : [0.229, 0.224, 0.225]
+[2024/05/18 02:30:35] wzocr INFO:             ToCHWImage : None
+[2024/05/18 02:30:35] wzocr INFO:             KeepKeys : 
+[2024/05/18 02:30:35] wzocr INFO:                 keep_keys : ['image', 'threshold_map', 'threshold_mask', 'shrink_map', 'shrink_mask']
+[2024/05/18 02:30:35] wzocr INFO:     loader : 
+[2024/05/18 02:30:35] wzocr INFO:         batch_size_per_card : 6
+[2024/05/18 02:30:35] wzocr INFO:         drop_last : False
+[2024/05/18 02:30:35] wzocr INFO:         num_workers : 4
+[2024/05/18 02:30:35] wzocr INFO:         shuffle : True
+[2024/05/18 02:30:35] wzocr INFO: train with pytorch 2.3.0+cpu and device cpu
+[2024/05/18 02:30:35] wzocr INFO: Initialize indexs of datasets:['./dataset/icdar2015/text_localization/train_icdar2015_label.txt']
+[2024/05/18 02:30:35] wzocr INFO: Initialize indexs of datasets:['./dataset/icdar2015/text_localization/test_icdar2015_label.txt']
+[2024/05/18 02:30:35] wzocr INFO: train dataloader has 3 iters
+[2024/05/18 02:30:35] wzocr INFO: valid dataloader has 6 iters
+[2024/05/18 02:30:35] wzocr INFO: During the training process, after the 0th iteration, an evaluation is run every 50 iterations
+[2024/05/18 02:32:00] wzocr INFO: epoch: [1/1200], global_step: 1, lr: 0.000333, loss: 219955424.000000, loss_shrink_maps: 219955424.000000, loss_threshold_maps: 3.117698, loss_binary_maps: 0.986496, 
+ 								 ips: 0.08373 samples/s, eta: 2 days, 23:33:22
+[2024/05/18 02:32:42] wzocr INFO: epoch: [1/1200], global_step: 2, lr: 0.000370, loss: 174867104.000000, loss_shrink_maps: 174867104.000000, loss_threshold_maps: 2.923384, loss_binary_maps: 0.971548, 
+ 								 ips: 0.14402 samples/s, eta: 2 days, 8:34:46
+[2024/05/18 02:33:49] wzocr INFO: epoch: [2/1200], global_step: 3, lr: 0.000407, loss: 133884560.000000, loss_shrink_maps: 133884560.000000, loss_threshold_maps: 2.729071, loss_binary_maps: 0.956599, 
+ 								 ips: 0.08941 samples/s, eta: 2 days, 12:00:24
+[2024/05/18 02:34:21] wzocr INFO: epoch: [2/1200], global_step: 4, lr: 0.000444, loss: 131831672.000000, loss_shrink_maps: 131831672.000000, loss_threshold_maps: 2.344358, loss_binary_maps: 0.954173, 
+ 								 ips: 0.18656 samples/s, eta: 2 days, 5:01:39
+[2024/05/18 02:35:23] wzocr INFO: epoch: [3/1200], global_step: 5, lr: 0.000481, loss: 129778784.000000, loss_shrink_maps: 129778784.000000, loss_threshold_maps: 1.959645, loss_binary_maps: 0.951746, 
+ 								 ips: 0.09677 samples/s, eta: 2 days, 6:44:58
+[2024/05/18 02:36:04] wzocr INFO: epoch: [3/1200], global_step: 6, lr: 0.000519, loss: 115476016.000000, loss_shrink_maps: 115476016.000000, loss_threshold_maps: 1.952085, loss_binary_maps: 0.948098, 
+ 								 ips: 0.14638 samples/s, eta: 2 days, 4:26:05
+[2024/05/18 02:37:46] wzocr INFO: Architecture : 
+[2024/05/18 02:37:46] wzocr INFO:     Backbone : 
+[2024/05/18 02:37:46] wzocr INFO:         block : Bottleneck
+[2024/05/18 02:37:46] wzocr INFO:         name : ResNet
+[2024/05/18 02:37:46] wzocr INFO:         num_blocks : [3, 4, 6, 3]
+[2024/05/18 02:37:46] wzocr INFO:     Head : 
+[2024/05/18 02:37:46] wzocr INFO:         k : 50
+[2024/05/18 02:37:46] wzocr INFO:         name : DBHead
+[2024/05/18 02:37:46] wzocr INFO:     Neck : 
+[2024/05/18 02:37:46] wzocr INFO:         name : DBFPN
+[2024/05/18 02:37:46] wzocr INFO:         out_channels : 256
+[2024/05/18 02:37:46] wzocr INFO:     Transform : None
+[2024/05/18 02:37:46] wzocr INFO:     algorithm : DB
+[2024/05/18 02:37:46] wzocr INFO:     model_type : det
+[2024/05/18 02:37:46] wzocr INFO: Eval : 
+[2024/05/18 02:37:46] wzocr INFO:     dataset : 
+[2024/05/18 02:37:46] wzocr INFO:         data_dir : ./dataset/icdar2015/text_localization/
+[2024/05/18 02:37:46] wzocr INFO:         label_file_list : ['./dataset/icdar2015/text_localization/test_icdar2015_label.txt']
+[2024/05/18 02:37:46] wzocr INFO:         name : SimpleDataSet
+[2024/05/18 02:37:46] wzocr INFO:         transforms : 
+[2024/05/18 02:37:46] wzocr INFO:             DecodeImage : 
+[2024/05/18 02:37:46] wzocr INFO:                 channel_first : False
+[2024/05/18 02:37:46] wzocr INFO:                 img_mode : BGR
+[2024/05/18 02:37:46] wzocr INFO:             DetLabelEncode : None
+[2024/05/18 02:37:46] wzocr INFO:             DetResizeForTest : 
+[2024/05/18 02:37:46] wzocr INFO:                 image_shape : [736, 1280]
+[2024/05/18 02:37:46] wzocr INFO:             NormalizeImage : 
+[2024/05/18 02:37:46] wzocr INFO:                 mean : [0.485, 0.456, 0.406]
+[2024/05/18 02:37:46] wzocr INFO:                 order : hwc
+[2024/05/18 02:37:46] wzocr INFO:                 scale : 1./255.
+[2024/05/18 02:37:46] wzocr INFO:                 std : [0.229, 0.224, 0.225]
+[2024/05/18 02:37:46] wzocr INFO:             ToCHWImage : None
+[2024/05/18 02:37:46] wzocr INFO:             KeepKeys : 
+[2024/05/18 02:37:46] wzocr INFO:                 keep_keys : ['image', 'shape', 'polys', 'ignore_tags']
+[2024/05/18 02:37:46] wzocr INFO:     loader : 
+[2024/05/18 02:37:46] wzocr INFO:         batch_size_per_card : 1
+[2024/05/18 02:37:46] wzocr INFO:         drop_last : False
+[2024/05/18 02:37:46] wzocr INFO:         num_workers : 2
+[2024/05/18 02:37:46] wzocr INFO:         shuffle : False
+[2024/05/18 02:37:46] wzocr INFO: Global : 
+[2024/05/18 02:37:46] wzocr INFO:     cal_metric_during_train : False
+[2024/05/18 02:37:46] wzocr INFO:     checkpoints : ./output/det_r50_vd/best_accuracy
+[2024/05/18 02:37:46] wzocr INFO:     epoch_num : 1200
+[2024/05/18 02:37:46] wzocr INFO:     eval_batch_step : [0, 50, 2000]
+[2024/05/18 02:37:46] wzocr INFO:     gpu_id : 0
+[2024/05/18 02:37:46] wzocr INFO:     infer_img : doc/imgs_en/img_10.jpg
+[2024/05/18 02:37:46] wzocr INFO:     log_smooth_window : 20
+[2024/05/18 02:37:46] wzocr INFO:     pretrained_model : ./pretrain_models/ResNet50_vd_ssld_pretrained
+[2024/05/18 02:37:46] wzocr INFO:     print_batch_step : 10
+[2024/05/18 02:37:46] wzocr INFO:     save_epoch_step : 100
+[2024/05/18 02:37:46] wzocr INFO:     save_inference_dir : None
+[2024/05/18 02:37:46] wzocr INFO:     save_model_dir : ./output/det_r50_vd/
+[2024/05/18 02:37:46] wzocr INFO:     save_res_path : ./output/det_db/predicts_db.txt
+[2024/05/18 02:37:46] wzocr INFO:     seed : 1024
+[2024/05/18 02:37:46] wzocr INFO:     use_gpu : False
+[2024/05/18 02:37:46] wzocr INFO:     use_tensorboard : True
+[2024/05/18 02:37:46] wzocr INFO: Loss : 
+[2024/05/18 02:37:46] wzocr INFO:     alpha : 5
+[2024/05/18 02:37:46] wzocr INFO:     balance_loss : True
+[2024/05/18 02:37:46] wzocr INFO:     beta : 10
+[2024/05/18 02:37:46] wzocr INFO:     main_loss_type : DiceLoss
+[2024/05/18 02:37:46] wzocr INFO:     name : DBLoss
+[2024/05/18 02:37:46] wzocr INFO:     ohem_ratio : 3
+[2024/05/18 02:37:46] wzocr INFO: Metric : 
+[2024/05/18 02:37:46] wzocr INFO:     main_indicator : hmean
+[2024/05/18 02:37:46] wzocr INFO:     name : DetMetric
+[2024/05/18 02:37:46] wzocr INFO: Optimizer : 
+[2024/05/18 02:37:46] wzocr INFO:     args : 
+[2024/05/18 02:37:46] wzocr INFO:         amsgrad : True
+[2024/05/18 02:37:46] wzocr INFO:         lr : 0.001
+[2024/05/18 02:37:46] wzocr INFO:         weight_decay : 0
+[2024/05/18 02:37:46] wzocr INFO:     lr_scheduler : 
+[2024/05/18 02:37:46] wzocr INFO:         args : 
+[2024/05/18 02:37:46] wzocr INFO:             warmup_epoch : 3
+[2024/05/18 02:37:46] wzocr INFO:         type : WarmupPolyLR
+[2024/05/18 02:37:46] wzocr INFO:     type : Adam
+[2024/05/18 02:37:46] wzocr INFO: PostProcess : 
+[2024/05/18 02:37:46] wzocr INFO:     box_thresh : 0.7
+[2024/05/18 02:37:46] wzocr INFO:     max_candidates : 1000
+[2024/05/18 02:37:46] wzocr INFO:     name : DBPostProcess
+[2024/05/18 02:37:46] wzocr INFO:     thresh : 0.3
+[2024/05/18 02:37:46] wzocr INFO:     unclip_ratio : 1.5
+[2024/05/18 02:37:46] wzocr INFO: Train : 
+[2024/05/18 02:37:46] wzocr INFO:     dataset : 
+[2024/05/18 02:37:46] wzocr INFO:         data_dir : ./dataset/icdar2015/text_localization/
+[2024/05/18 02:37:46] wzocr INFO:         label_file_list : ['./dataset/icdar2015/text_localization/train_icdar2015_label.txt']
+[2024/05/18 02:37:46] wzocr INFO:         name : SimpleDataSet
+[2024/05/18 02:37:46] wzocr INFO:         ratio_list : [1.0]
+[2024/05/18 02:37:46] wzocr INFO:         transforms : 
+[2024/05/18 02:37:46] wzocr INFO:             DecodeImage : 
+[2024/05/18 02:37:46] wzocr INFO:                 channel_first : False
+[2024/05/18 02:37:46] wzocr INFO:                 img_mode : BGR
+[2024/05/18 02:37:46] wzocr INFO:             DetLabelEncode : None
+[2024/05/18 02:37:46] wzocr INFO:             IaaAugment : 
+[2024/05/18 02:37:46] wzocr INFO:                 augmenter_args : 
+[2024/05/18 02:37:46] wzocr INFO:                     args : 
+[2024/05/18 02:37:46] wzocr INFO:                         p : 0.5
+[2024/05/18 02:37:46] wzocr INFO:                     type : Fliplr
+[2024/05/18 02:37:46] wzocr INFO:                     args : 
+[2024/05/18 02:37:46] wzocr INFO:                         rotate : [-10, 10]
+[2024/05/18 02:37:46] wzocr INFO:                     type : Affine
+[2024/05/18 02:37:46] wzocr INFO:                     args : 
+[2024/05/18 02:37:46] wzocr INFO:                         size : [0.5, 3]
+[2024/05/18 02:37:46] wzocr INFO:                     type : Resize
+[2024/05/18 02:37:46] wzocr INFO:             EastRandomCropData : 
+[2024/05/18 02:37:46] wzocr INFO:                 keep_ratio : True
+[2024/05/18 02:37:46] wzocr INFO:                 max_tries : 50
+[2024/05/18 02:37:46] wzocr INFO:                 size : [640, 640]
+[2024/05/18 02:37:46] wzocr INFO:             MakeBorderMap : 
+[2024/05/18 02:37:46] wzocr INFO:                 shrink_ratio : 0.4
+[2024/05/18 02:37:46] wzocr INFO:                 thresh_max : 0.7
+[2024/05/18 02:37:46] wzocr INFO:                 thresh_min : 0.3
+[2024/05/18 02:37:46] wzocr INFO:             MakeShrinkMap : 
+[2024/05/18 02:37:46] wzocr INFO:                 min_text_size : 8
+[2024/05/18 02:37:46] wzocr INFO:                 shrink_ratio : 0.4
+[2024/05/18 02:37:46] wzocr INFO:             NormalizeImage : 
+[2024/05/18 02:37:46] wzocr INFO:                 mean : [0.485, 0.456, 0.406]
+[2024/05/18 02:37:46] wzocr INFO:                 order : hwc
+[2024/05/18 02:37:46] wzocr INFO:                 scale : 1./255.
+[2024/05/18 02:37:46] wzocr INFO:                 std : [0.229, 0.224, 0.225]
+[2024/05/18 02:37:46] wzocr INFO:             ToCHWImage : None
+[2024/05/18 02:37:46] wzocr INFO:             KeepKeys : 
+[2024/05/18 02:37:46] wzocr INFO:                 keep_keys : ['image', 'threshold_map', 'threshold_mask', 'shrink_map', 'shrink_mask']
+[2024/05/18 02:37:46] wzocr INFO:     loader : 
+[2024/05/18 02:37:46] wzocr INFO:         batch_size_per_card : 6
+[2024/05/18 02:37:46] wzocr INFO:         drop_last : False
+[2024/05/18 02:37:46] wzocr INFO:         num_workers : 4
+[2024/05/18 02:37:46] wzocr INFO:         shuffle : True
+[2024/05/18 02:37:46] wzocr INFO: train with pytorch 2.3.0+cpu and device cpu
+[2024/05/18 02:37:46] wzocr INFO: Initialize indexs of datasets:['./dataset/icdar2015/text_localization/train_icdar2015_label.txt']
+[2024/05/18 02:37:46] wzocr INFO: Initialize indexs of datasets:['./dataset/icdar2015/text_localization/test_icdar2015_label.txt']
+[2024/05/18 02:37:46] wzocr INFO: train dataloader has 3 iters
+[2024/05/18 02:37:46] wzocr INFO: valid dataloader has 6 iters
+[2024/05/18 02:37:46] wzocr INFO: During the training process, after the 0th iteration, an evaluation is run every 50 iterations
+[2024/05/18 02:39:02] wzocr INFO: epoch: [1/1200], global_step: 1, lr: 0.000333, loss: 219955424.000000, loss_shrink_maps: 219955424.000000, loss_threshold_maps: 3.117698, loss_binary_maps: 0.986496, 
+ 								 ips: 0.09156 samples/s, eta: 2 days, 17:26:24
+[2024/05/18 02:39:35] wzocr INFO: epoch: [1/1200], global_step: 2, lr: 0.000370, loss: 174867104.000000, loss_shrink_maps: 174867104.000000, loss_threshold_maps: 2.923384, loss_binary_maps: 0.971548, 
+ 								 ips: 0.18029 samples/s, eta: 2 days, 1:20:11
+[2024/05/18 02:42:14] wzocr INFO: Architecture : 
+[2024/05/18 02:42:14] wzocr INFO:     Backbone : 
+[2024/05/18 02:42:14] wzocr INFO:         block : Bottleneck
+[2024/05/18 02:42:14] wzocr INFO:         name : ResNet
+[2024/05/18 02:42:14] wzocr INFO:         num_blocks : [3, 4, 6, 3]
+[2024/05/18 02:42:14] wzocr INFO:     Head : 
+[2024/05/18 02:42:14] wzocr INFO:         k : 50
+[2024/05/18 02:42:14] wzocr INFO:         name : DBHead
+[2024/05/18 02:42:14] wzocr INFO:     Neck : 
+[2024/05/18 02:42:14] wzocr INFO:         name : DBFPN
+[2024/05/18 02:42:14] wzocr INFO:         out_channels : 256
+[2024/05/18 02:42:14] wzocr INFO:     Transform : None
+[2024/05/18 02:42:14] wzocr INFO:     algorithm : DB
+[2024/05/18 02:42:14] wzocr INFO:     model_type : det
+[2024/05/18 02:42:14] wzocr INFO: Eval : 
+[2024/05/18 02:42:14] wzocr INFO:     dataset : 
+[2024/05/18 02:42:14] wzocr INFO:         data_dir : ./dataset/icdar2015/text_localization/
+[2024/05/18 02:42:14] wzocr INFO:         label_file_list : ['./dataset/icdar2015/text_localization/test_icdar2015_label.txt']
+[2024/05/18 02:42:14] wzocr INFO:         name : SimpleDataSet
+[2024/05/18 02:42:14] wzocr INFO:         transforms : 
+[2024/05/18 02:42:14] wzocr INFO:             DecodeImage : 
+[2024/05/18 02:42:14] wzocr INFO:                 channel_first : False
+[2024/05/18 02:42:14] wzocr INFO:                 img_mode : BGR
+[2024/05/18 02:42:14] wzocr INFO:             DetLabelEncode : None
+[2024/05/18 02:42:14] wzocr INFO:             DetResizeForTest : 
+[2024/05/18 02:42:14] wzocr INFO:                 image_shape : [736, 1280]
+[2024/05/18 02:42:14] wzocr INFO:             NormalizeImage : 
+[2024/05/18 02:42:14] wzocr INFO:                 mean : [0.485, 0.456, 0.406]
+[2024/05/18 02:42:14] wzocr INFO:                 order : hwc
+[2024/05/18 02:42:14] wzocr INFO:                 scale : 1./255.
+[2024/05/18 02:42:14] wzocr INFO:                 std : [0.229, 0.224, 0.225]
+[2024/05/18 02:42:14] wzocr INFO:             ToCHWImage : None
+[2024/05/18 02:42:14] wzocr INFO:             KeepKeys : 
+[2024/05/18 02:42:14] wzocr INFO:                 keep_keys : ['image', 'shape', 'polys', 'ignore_tags']
+[2024/05/18 02:42:14] wzocr INFO:     loader : 
+[2024/05/18 02:42:14] wzocr INFO:         batch_size_per_card : 1
+[2024/05/18 02:42:14] wzocr INFO:         drop_last : False
+[2024/05/18 02:42:14] wzocr INFO:         num_workers : 2
+[2024/05/18 02:42:14] wzocr INFO:         shuffle : False
+[2024/05/18 02:42:14] wzocr INFO: Global : 
+[2024/05/18 02:42:14] wzocr INFO:     cal_metric_during_train : False
+[2024/05/18 02:42:14] wzocr INFO:     checkpoints : ./output/det_r50_vd/best_accuracy
+[2024/05/18 02:42:14] wzocr INFO:     epoch_num : 1200
+[2024/05/18 02:42:14] wzocr INFO:     eval_batch_step : [0, 50, 2000]
+[2024/05/18 02:42:14] wzocr INFO:     gpu_id : 0
+[2024/05/18 02:42:14] wzocr INFO:     infer_img : doc/imgs_en/img_10.jpg
+[2024/05/18 02:42:14] wzocr INFO:     log_smooth_window : 20
+[2024/05/18 02:42:14] wzocr INFO:     pretrained_model : ./pretrain_models/ResNet50_vd_ssld_pretrained
+[2024/05/18 02:42:14] wzocr INFO:     print_batch_step : 10
+[2024/05/18 02:42:14] wzocr INFO:     save_epoch_step : 100
+[2024/05/18 02:42:14] wzocr INFO:     save_inference_dir : None
+[2024/05/18 02:42:14] wzocr INFO:     save_model_dir : ./output/det_r50_vd/
+[2024/05/18 02:42:14] wzocr INFO:     save_res_path : ./output/det_db/predicts_db.txt
+[2024/05/18 02:42:14] wzocr INFO:     seed : 1024
+[2024/05/18 02:42:14] wzocr INFO:     use_gpu : False
+[2024/05/18 02:42:14] wzocr INFO:     use_tensorboard : True
+[2024/05/18 02:42:14] wzocr INFO: Loss : 
+[2024/05/18 02:42:14] wzocr INFO:     alpha : 5
+[2024/05/18 02:42:14] wzocr INFO:     balance_loss : True
+[2024/05/18 02:42:14] wzocr INFO:     beta : 10
+[2024/05/18 02:42:14] wzocr INFO:     main_loss_type : DiceLoss
+[2024/05/18 02:42:14] wzocr INFO:     name : DBLoss
+[2024/05/18 02:42:14] wzocr INFO:     ohem_ratio : 3
+[2024/05/18 02:42:14] wzocr INFO: Metric : 
+[2024/05/18 02:42:14] wzocr INFO:     main_indicator : hmean
+[2024/05/18 02:42:14] wzocr INFO:     name : DetMetric
+[2024/05/18 02:42:14] wzocr INFO: Optimizer : 
+[2024/05/18 02:42:14] wzocr INFO:     args : 
+[2024/05/18 02:42:14] wzocr INFO:         amsgrad : True
+[2024/05/18 02:42:14] wzocr INFO:         lr : 0.001
+[2024/05/18 02:42:14] wzocr INFO:         weight_decay : 0
+[2024/05/18 02:42:14] wzocr INFO:     lr_scheduler : 
+[2024/05/18 02:42:14] wzocr INFO:         args : 
+[2024/05/18 02:42:14] wzocr INFO:             warmup_epoch : 3
+[2024/05/18 02:42:14] wzocr INFO:         type : WarmupPolyLR
+[2024/05/18 02:42:14] wzocr INFO:     type : Adam
+[2024/05/18 02:42:14] wzocr INFO: PostProcess : 
+[2024/05/18 02:42:14] wzocr INFO:     box_thresh : 0.7
+[2024/05/18 02:42:14] wzocr INFO:     max_candidates : 1000
+[2024/05/18 02:42:14] wzocr INFO:     name : DBPostProcess
+[2024/05/18 02:42:14] wzocr INFO:     thresh : 0.3
+[2024/05/18 02:42:14] wzocr INFO:     unclip_ratio : 1.5
+[2024/05/18 02:42:14] wzocr INFO: Train : 
+[2024/05/18 02:42:14] wzocr INFO:     dataset : 
+[2024/05/18 02:42:14] wzocr INFO:         data_dir : ./dataset/icdar2015/text_localization/
+[2024/05/18 02:42:14] wzocr INFO:         label_file_list : ['./dataset/icdar2015/text_localization/train_icdar2015_label.txt']
+[2024/05/18 02:42:14] wzocr INFO:         name : SimpleDataSet
+[2024/05/18 02:42:14] wzocr INFO:         ratio_list : [1.0]
+[2024/05/18 02:42:14] wzocr INFO:         transforms : 
+[2024/05/18 02:42:14] wzocr INFO:             DecodeImage : 
+[2024/05/18 02:42:14] wzocr INFO:                 channel_first : False
+[2024/05/18 02:42:14] wzocr INFO:                 img_mode : BGR
+[2024/05/18 02:42:14] wzocr INFO:             DetLabelEncode : None
+[2024/05/18 02:42:14] wzocr INFO:             IaaAugment : 
+[2024/05/18 02:42:14] wzocr INFO:                 augmenter_args : 
+[2024/05/18 02:42:14] wzocr INFO:                     args : 
+[2024/05/18 02:42:14] wzocr INFO:                         p : 0.5
+[2024/05/18 02:42:14] wzocr INFO:                     type : Fliplr
+[2024/05/18 02:42:14] wzocr INFO:                     args : 
+[2024/05/18 02:42:14] wzocr INFO:                         rotate : [-10, 10]
+[2024/05/18 02:42:14] wzocr INFO:                     type : Affine
+[2024/05/18 02:42:14] wzocr INFO:                     args : 
+[2024/05/18 02:42:14] wzocr INFO:                         size : [0.5, 3]
+[2024/05/18 02:42:14] wzocr INFO:                     type : Resize
+[2024/05/18 02:42:14] wzocr INFO:             EastRandomCropData : 
+[2024/05/18 02:42:14] wzocr INFO:                 keep_ratio : True
+[2024/05/18 02:42:14] wzocr INFO:                 max_tries : 50
+[2024/05/18 02:42:14] wzocr INFO:                 size : [640, 640]
+[2024/05/18 02:42:14] wzocr INFO:             MakeBorderMap : 
+[2024/05/18 02:42:14] wzocr INFO:                 shrink_ratio : 0.4
+[2024/05/18 02:42:14] wzocr INFO:                 thresh_max : 0.7
+[2024/05/18 02:42:14] wzocr INFO:                 thresh_min : 0.3
+[2024/05/18 02:42:14] wzocr INFO:             MakeShrinkMap : 
+[2024/05/18 02:42:14] wzocr INFO:                 min_text_size : 8
+[2024/05/18 02:42:14] wzocr INFO:                 shrink_ratio : 0.4
+[2024/05/18 02:42:14] wzocr INFO:             NormalizeImage : 
+[2024/05/18 02:42:14] wzocr INFO:                 mean : [0.485, 0.456, 0.406]
+[2024/05/18 02:42:14] wzocr INFO:                 order : hwc
+[2024/05/18 02:42:14] wzocr INFO:                 scale : 1./255.
+[2024/05/18 02:42:14] wzocr INFO:                 std : [0.229, 0.224, 0.225]
+[2024/05/18 02:42:14] wzocr INFO:             ToCHWImage : None
+[2024/05/18 02:42:14] wzocr INFO:             KeepKeys : 
+[2024/05/18 02:42:14] wzocr INFO:                 keep_keys : ['image', 'threshold_map', 'threshold_mask', 'shrink_map', 'shrink_mask']
+[2024/05/18 02:42:14] wzocr INFO:     loader : 
+[2024/05/18 02:42:14] wzocr INFO:         batch_size_per_card : 6
+[2024/05/18 02:42:14] wzocr INFO:         drop_last : False
+[2024/05/18 02:42:15] wzocr INFO:         num_workers : 4
+[2024/05/18 02:42:15] wzocr INFO:         shuffle : True
+[2024/05/18 02:42:15] wzocr INFO: train with pytorch 2.3.0+cpu and device cpu
+[2024/05/18 02:42:15] wzocr INFO: Initialize indexs of datasets:['./dataset/icdar2015/text_localization/train_icdar2015_label.txt']
+[2024/05/18 02:42:15] wzocr INFO: Initialize indexs of datasets:['./dataset/icdar2015/text_localization/test_icdar2015_label.txt']
+[2024/05/18 02:42:15] wzocr INFO: train dataloader has 3 iters
+[2024/05/18 02:42:15] wzocr INFO: valid dataloader has 6 iters
+[2024/05/18 02:42:15] wzocr INFO: During the training process, after the 0th iteration, an evaluation is run every 50 iterations
+[2024/05/18 02:43:44] wzocr INFO: epoch: [1/1200], global_step: 1, lr: 0.000333, loss: 219955424.000000, loss_shrink_maps: 219955424.000000, loss_threshold_maps: 3.117698, loss_binary_maps: 0.986496, 
+ 								 ips: 0.07950 samples/s, eta: 3 days, 3:22:05
+[2024/05/18 02:44:26] wzocr INFO: epoch: [1/1200], global_step: 2, lr: 0.000370, loss: 174867104.000000, loss_shrink_maps: 174867104.000000, loss_threshold_maps: 2.923384, loss_binary_maps: 0.971548, 
+ 								 ips: 0.14309 samples/s, eta: 2 days, 10:37:16
+[2024/05/18 02:47:29] wzocr INFO: Architecture : 
+[2024/05/18 02:47:29] wzocr INFO:     Backbone : 
+[2024/05/18 02:47:29] wzocr INFO:         block : Bottleneck
+[2024/05/18 02:47:29] wzocr INFO:         name : ResNet
+[2024/05/18 02:47:29] wzocr INFO:         num_blocks : [3, 4, 6, 3]
+[2024/05/18 02:47:29] wzocr INFO:     Head : 
+[2024/05/18 02:47:29] wzocr INFO:         k : 50
+[2024/05/18 02:47:29] wzocr INFO:         name : DBHead
+[2024/05/18 02:47:29] wzocr INFO:     Neck : 
+[2024/05/18 02:47:29] wzocr INFO:         name : DBFPN
+[2024/05/18 02:47:29] wzocr INFO:         out_channels : 256
+[2024/05/18 02:47:29] wzocr INFO:     Transform : None
+[2024/05/18 02:47:29] wzocr INFO:     algorithm : DB
+[2024/05/18 02:47:29] wzocr INFO:     model_type : det
+[2024/05/18 02:47:29] wzocr INFO: Eval : 
+[2024/05/18 02:47:29] wzocr INFO:     dataset : 
+[2024/05/18 02:47:29] wzocr INFO:         data_dir : ./dataset/icdar2015/text_localization/
+[2024/05/18 02:47:29] wzocr INFO:         label_file_list : ['./dataset/icdar2015/text_localization/test_icdar2015_label.txt']
+[2024/05/18 02:47:29] wzocr INFO:         name : SimpleDataSet
+[2024/05/18 02:47:29] wzocr INFO:         transforms : 
+[2024/05/18 02:47:29] wzocr INFO:             DecodeImage : 
+[2024/05/18 02:47:29] wzocr INFO:                 channel_first : False
+[2024/05/18 02:47:29] wzocr INFO:                 img_mode : BGR
+[2024/05/18 02:47:29] wzocr INFO:             DetLabelEncode : None
+[2024/05/18 02:47:29] wzocr INFO:             DetResizeForTest : 
+[2024/05/18 02:47:29] wzocr INFO:                 image_shape : [736, 1280]
+[2024/05/18 02:47:29] wzocr INFO:             NormalizeImage : 
+[2024/05/18 02:47:29] wzocr INFO:                 mean : [0.485, 0.456, 0.406]
+[2024/05/18 02:47:29] wzocr INFO:                 order : hwc
+[2024/05/18 02:47:29] wzocr INFO:                 scale : 1./255.
+[2024/05/18 02:47:29] wzocr INFO:                 std : [0.229, 0.224, 0.225]
+[2024/05/18 02:47:29] wzocr INFO:             ToCHWImage : None
+[2024/05/18 02:47:29] wzocr INFO:             KeepKeys : 
+[2024/05/18 02:47:29] wzocr INFO:                 keep_keys : ['image', 'shape', 'polys', 'ignore_tags']
+[2024/05/18 02:47:29] wzocr INFO:     loader : 
+[2024/05/18 02:47:29] wzocr INFO:         batch_size_per_card : 1
+[2024/05/18 02:47:29] wzocr INFO:         drop_last : False
+[2024/05/18 02:47:29] wzocr INFO:         num_workers : 2
+[2024/05/18 02:47:29] wzocr INFO:         shuffle : False
+[2024/05/18 02:47:29] wzocr INFO: Global : 
+[2024/05/18 02:47:29] wzocr INFO:     cal_metric_during_train : False
+[2024/05/18 02:47:29] wzocr INFO:     checkpoints : ./output/det_r50_vd/best_accuracy
+[2024/05/18 02:47:29] wzocr INFO:     epoch_num : 1200
+[2024/05/18 02:47:29] wzocr INFO:     eval_batch_step : [0, 50, 2000]
+[2024/05/18 02:47:29] wzocr INFO:     gpu_id : 0
+[2024/05/18 02:47:29] wzocr INFO:     infer_img : doc/imgs_en/img_10.jpg
+[2024/05/18 02:47:29] wzocr INFO:     log_smooth_window : 20
+[2024/05/18 02:47:29] wzocr INFO:     pretrained_model : ./pretrain_models/ResNet50_vd_ssld_pretrained
+[2024/05/18 02:47:29] wzocr INFO:     print_batch_step : 10
+[2024/05/18 02:47:29] wzocr INFO:     save_epoch_step : 100
+[2024/05/18 02:47:29] wzocr INFO:     save_inference_dir : None
+[2024/05/18 02:47:29] wzocr INFO:     save_model_dir : ./output/det_r50_vd/
+[2024/05/18 02:47:29] wzocr INFO:     save_res_path : ./output/det_db/predicts_db.txt
+[2024/05/18 02:47:29] wzocr INFO:     seed : 1024
+[2024/05/18 02:47:29] wzocr INFO:     use_gpu : False
+[2024/05/18 02:47:29] wzocr INFO:     use_tensorboard : True
+[2024/05/18 02:47:29] wzocr INFO: Loss : 
+[2024/05/18 02:47:29] wzocr INFO:     alpha : 5
+[2024/05/18 02:47:29] wzocr INFO:     balance_loss : True
+[2024/05/18 02:47:29] wzocr INFO:     beta : 10
+[2024/05/18 02:47:29] wzocr INFO:     main_loss_type : DiceLoss
+[2024/05/18 02:47:29] wzocr INFO:     name : DBLoss
+[2024/05/18 02:47:29] wzocr INFO:     ohem_ratio : 3
+[2024/05/18 02:47:29] wzocr INFO: Metric : 
+[2024/05/18 02:47:29] wzocr INFO:     main_indicator : hmean
+[2024/05/18 02:47:29] wzocr INFO:     name : DetMetric
+[2024/05/18 02:47:29] wzocr INFO: Optimizer : 
+[2024/05/18 02:47:29] wzocr INFO:     args : 
+[2024/05/18 02:47:29] wzocr INFO:         amsgrad : True
+[2024/05/18 02:47:29] wzocr INFO:         lr : 0.001
+[2024/05/18 02:47:29] wzocr INFO:         weight_decay : 0
+[2024/05/18 02:47:29] wzocr INFO:     lr_scheduler : 
+[2024/05/18 02:47:29] wzocr INFO:         args : 
+[2024/05/18 02:47:29] wzocr INFO:             warmup_epoch : 3
+[2024/05/18 02:47:29] wzocr INFO:         type : WarmupPolyLR
+[2024/05/18 02:47:29] wzocr INFO:     type : Adam
+[2024/05/18 02:47:29] wzocr INFO: PostProcess : 
+[2024/05/18 02:47:29] wzocr INFO:     box_thresh : 0.7
+[2024/05/18 02:47:29] wzocr INFO:     max_candidates : 1000
+[2024/05/18 02:47:29] wzocr INFO:     name : DBPostProcess
+[2024/05/18 02:47:29] wzocr INFO:     thresh : 0.3
+[2024/05/18 02:47:29] wzocr INFO:     unclip_ratio : 1.5
+[2024/05/18 02:47:29] wzocr INFO: Train : 
+[2024/05/18 02:47:29] wzocr INFO:     dataset : 
+[2024/05/18 02:47:29] wzocr INFO:         data_dir : ./dataset/icdar2015/text_localization/
+[2024/05/18 02:47:29] wzocr INFO:         label_file_list : ['./dataset/icdar2015/text_localization/train_icdar2015_label.txt']
+[2024/05/18 02:47:29] wzocr INFO:         name : SimpleDataSet
+[2024/05/18 02:47:29] wzocr INFO:         ratio_list : [1.0]
+[2024/05/18 02:47:29] wzocr INFO:         transforms : 
+[2024/05/18 02:47:29] wzocr INFO:             DecodeImage : 
+[2024/05/18 02:47:29] wzocr INFO:                 channel_first : False
+[2024/05/18 02:47:29] wzocr INFO:                 img_mode : BGR
+[2024/05/18 02:47:29] wzocr INFO:             DetLabelEncode : None
+[2024/05/18 02:47:29] wzocr INFO:             IaaAugment : 
+[2024/05/18 02:47:29] wzocr INFO:                 augmenter_args : 
+[2024/05/18 02:47:29] wzocr INFO:                     args : 
+[2024/05/18 02:47:29] wzocr INFO:                         p : 0.5
+[2024/05/18 02:47:29] wzocr INFO:                     type : Fliplr
+[2024/05/18 02:47:29] wzocr INFO:                     args : 
+[2024/05/18 02:47:29] wzocr INFO:                         rotate : [-10, 10]
+[2024/05/18 02:47:29] wzocr INFO:                     type : Affine
+[2024/05/18 02:47:29] wzocr INFO:                     args : 
+[2024/05/18 02:47:29] wzocr INFO:                         size : [0.5, 3]
+[2024/05/18 02:47:29] wzocr INFO:                     type : Resize
+[2024/05/18 02:47:29] wzocr INFO:             EastRandomCropData : 
+[2024/05/18 02:47:29] wzocr INFO:                 keep_ratio : True
+[2024/05/18 02:47:29] wzocr INFO:                 max_tries : 50
+[2024/05/18 02:47:29] wzocr INFO:                 size : [640, 640]
+[2024/05/18 02:47:29] wzocr INFO:             MakeBorderMap : 
+[2024/05/18 02:47:29] wzocr INFO:                 shrink_ratio : 0.4
+[2024/05/18 02:47:29] wzocr INFO:                 thresh_max : 0.7
+[2024/05/18 02:47:29] wzocr INFO:                 thresh_min : 0.3
+[2024/05/18 02:47:29] wzocr INFO:             MakeShrinkMap : 
+[2024/05/18 02:47:29] wzocr INFO:                 min_text_size : 8
+[2024/05/18 02:47:29] wzocr INFO:                 shrink_ratio : 0.4
+[2024/05/18 02:47:29] wzocr INFO:             NormalizeImage : 
+[2024/05/18 02:47:29] wzocr INFO:                 mean : [0.485, 0.456, 0.406]
+[2024/05/18 02:47:29] wzocr INFO:                 order : hwc
+[2024/05/18 02:47:29] wzocr INFO:                 scale : 1./255.
+[2024/05/18 02:47:29] wzocr INFO:                 std : [0.229, 0.224, 0.225]
+[2024/05/18 02:47:29] wzocr INFO:             ToCHWImage : None
+[2024/05/18 02:47:29] wzocr INFO:             KeepKeys : 
+[2024/05/18 02:47:29] wzocr INFO:                 keep_keys : ['image', 'threshold_map', 'threshold_mask', 'shrink_map', 'shrink_mask']
+[2024/05/18 02:47:29] wzocr INFO:     loader : 
+[2024/05/18 02:47:29] wzocr INFO:         batch_size_per_card : 6
+[2024/05/18 02:47:29] wzocr INFO:         drop_last : False
+[2024/05/18 02:47:29] wzocr INFO:         num_workers : 4
+[2024/05/18 02:47:29] wzocr INFO:         shuffle : True
+[2024/05/18 02:47:29] wzocr INFO: train with pytorch 2.3.0+cpu and device cpu
+[2024/05/18 02:47:29] wzocr INFO: Initialize indexs of datasets:['./dataset/icdar2015/text_localization/train_icdar2015_label.txt']
+[2024/05/18 02:47:29] wzocr INFO: Initialize indexs of datasets:['./dataset/icdar2015/text_localization/test_icdar2015_label.txt']
+[2024/05/18 02:47:29] wzocr INFO: train dataloader has 3 iters
+[2024/05/18 02:47:29] wzocr INFO: valid dataloader has 6 iters
+[2024/05/18 02:47:29] wzocr INFO: During the training process, after the 0th iteration, an evaluation is run every 50 iterations
+[2024/05/18 02:48:54] wzocr INFO: epoch: [1/1200], global_step: 1, lr: 0.000333, loss: 219955424.000000, loss_shrink_maps: 219955424.000000, loss_threshold_maps: 3.117698, loss_binary_maps: 0.986496, 
+ 								 ips: 0.08204 samples/s, eta: 3 days, 1:02:00
+[2024/05/18 02:49:35] wzocr INFO: epoch: [1/1200], global_step: 2, lr: 0.000370, loss: 174867104.000000, loss_shrink_maps: 174867104.000000, loss_threshold_maps: 2.923384, loss_binary_maps: 0.971548, 
+ 								 ips: 0.14651 samples/s, eta: 2 days, 8:57:50
+[2024/05/18 02:55:15] wzocr INFO: Architecture : 
+[2024/05/18 02:55:15] wzocr INFO:     Backbone : 
+[2024/05/18 02:55:15] wzocr INFO:         block : Bottleneck
+[2024/05/18 02:55:15] wzocr INFO:         name : ResNet
+[2024/05/18 02:55:15] wzocr INFO:         num_blocks : [3, 4, 6, 3]
+[2024/05/18 02:55:15] wzocr INFO:     Head : 
+[2024/05/18 02:55:15] wzocr INFO:         k : 50
+[2024/05/18 02:55:15] wzocr INFO:         name : DBHead
+[2024/05/18 02:55:15] wzocr INFO:     Neck : 
+[2024/05/18 02:55:15] wzocr INFO:         name : DBFPN
+[2024/05/18 02:55:15] wzocr INFO:         out_channels : 256
+[2024/05/18 02:55:15] wzocr INFO:     Transform : None
+[2024/05/18 02:55:15] wzocr INFO:     algorithm : DB
+[2024/05/18 02:55:15] wzocr INFO:     model_type : det
+[2024/05/18 02:55:15] wzocr INFO: Eval : 
+[2024/05/18 02:55:15] wzocr INFO:     dataset : 
+[2024/05/18 02:55:15] wzocr INFO:         data_dir : ./dataset/icdar2015/text_localization/
+[2024/05/18 02:55:15] wzocr INFO:         label_file_list : ['./dataset/icdar2015/text_localization/test_icdar2015_label.txt']
+[2024/05/18 02:55:15] wzocr INFO:         name : SimpleDataSet
+[2024/05/18 02:55:15] wzocr INFO:         transforms : 
+[2024/05/18 02:55:15] wzocr INFO:             DecodeImage : 
+[2024/05/18 02:55:15] wzocr INFO:                 channel_first : False
+[2024/05/18 02:55:15] wzocr INFO:                 img_mode : BGR
+[2024/05/18 02:55:15] wzocr INFO:             DetLabelEncode : None
+[2024/05/18 02:55:15] wzocr INFO:             DetResizeForTest : 
+[2024/05/18 02:55:15] wzocr INFO:                 image_shape : [736, 1280]
+[2024/05/18 02:55:15] wzocr INFO:             NormalizeImage : 
+[2024/05/18 02:55:15] wzocr INFO:                 mean : [0.485, 0.456, 0.406]
+[2024/05/18 02:55:15] wzocr INFO:                 order : hwc
+[2024/05/18 02:55:15] wzocr INFO:                 scale : 1./255.
+[2024/05/18 02:55:15] wzocr INFO:                 std : [0.229, 0.224, 0.225]
+[2024/05/18 02:55:15] wzocr INFO:             ToCHWImage : None
+[2024/05/18 02:55:15] wzocr INFO:             KeepKeys : 
+[2024/05/18 02:55:15] wzocr INFO:                 keep_keys : ['image', 'shape', 'polys', 'ignore_tags']
+[2024/05/18 02:55:15] wzocr INFO:     loader : 
+[2024/05/18 02:55:15] wzocr INFO:         batch_size_per_card : 1
+[2024/05/18 02:55:15] wzocr INFO:         drop_last : False
+[2024/05/18 02:55:15] wzocr INFO:         num_workers : 2
+[2024/05/18 02:55:15] wzocr INFO:         shuffle : False
+[2024/05/18 02:55:15] wzocr INFO: Global : 
+[2024/05/18 02:55:15] wzocr INFO:     cal_metric_during_train : False
+[2024/05/18 02:55:15] wzocr INFO:     checkpoints : ./output/det_r50_vd/best_accuracy
+[2024/05/18 02:55:15] wzocr INFO:     epoch_num : 1200
+[2024/05/18 02:55:15] wzocr INFO:     eval_batch_step : [0, 50, 2000]
+[2024/05/18 02:55:15] wzocr INFO:     gpu_id : 0
+[2024/05/18 02:55:15] wzocr INFO:     infer_img : doc/imgs_en/img_10.jpg
+[2024/05/18 02:55:15] wzocr INFO:     log_smooth_window : 20
+[2024/05/18 02:55:15] wzocr INFO:     pretrained_model : ./pretrain_models/ResNet50_vd_ssld_pretrained
+[2024/05/18 02:55:15] wzocr INFO:     print_batch_step : 10
+[2024/05/18 02:55:15] wzocr INFO:     save_epoch_step : 100
+[2024/05/18 02:55:15] wzocr INFO:     save_inference_dir : None
+[2024/05/18 02:55:15] wzocr INFO:     save_model_dir : ./output/det_r50_vd/
+[2024/05/18 02:55:15] wzocr INFO:     save_res_path : ./output/det_db/predicts_db.txt
+[2024/05/18 02:55:15] wzocr INFO:     seed : 1024
+[2024/05/18 02:55:15] wzocr INFO:     use_gpu : False
+[2024/05/18 02:55:15] wzocr INFO:     use_tensorboard : True
+[2024/05/18 02:55:15] wzocr INFO: Loss : 
+[2024/05/18 02:55:15] wzocr INFO:     alpha : 5
+[2024/05/18 02:55:15] wzocr INFO:     balance_loss : True
+[2024/05/18 02:55:15] wzocr INFO:     beta : 10
+[2024/05/18 02:55:15] wzocr INFO:     main_loss_type : DiceLoss
+[2024/05/18 02:55:15] wzocr INFO:     name : DBLoss
+[2024/05/18 02:55:15] wzocr INFO:     ohem_ratio : 3
+[2024/05/18 02:55:15] wzocr INFO: Metric : 
+[2024/05/18 02:55:15] wzocr INFO:     main_indicator : hmean
+[2024/05/18 02:55:15] wzocr INFO:     name : DetMetric
+[2024/05/18 02:55:15] wzocr INFO: Optimizer : 
+[2024/05/18 02:55:15] wzocr INFO:     args : 
+[2024/05/18 02:55:15] wzocr INFO:         amsgrad : True
+[2024/05/18 02:55:15] wzocr INFO:         lr : 0.001
+[2024/05/18 02:55:15] wzocr INFO:         weight_decay : 0
+[2024/05/18 02:55:15] wzocr INFO:     lr_scheduler : 
+[2024/05/18 02:55:15] wzocr INFO:         args : 
+[2024/05/18 02:55:15] wzocr INFO:             warmup_epoch : 3
+[2024/05/18 02:55:15] wzocr INFO:         type : WarmupPolyLR
+[2024/05/18 02:55:15] wzocr INFO:     type : Adam
+[2024/05/18 02:55:15] wzocr INFO: PostProcess : 
+[2024/05/18 02:55:15] wzocr INFO:     box_thresh : 0.7
+[2024/05/18 02:55:15] wzocr INFO:     max_candidates : 1000
+[2024/05/18 02:55:15] wzocr INFO:     name : DBPostProcess
+[2024/05/18 02:55:15] wzocr INFO:     thresh : 0.3
+[2024/05/18 02:55:15] wzocr INFO:     unclip_ratio : 1.5
+[2024/05/18 02:55:15] wzocr INFO: Train : 
+[2024/05/18 02:55:15] wzocr INFO:     dataset : 
+[2024/05/18 02:55:15] wzocr INFO:         data_dir : ./dataset/icdar2015/text_localization/
+[2024/05/18 02:55:15] wzocr INFO:         label_file_list : ['./dataset/icdar2015/text_localization/train_icdar2015_label.txt']
+[2024/05/18 02:55:15] wzocr INFO:         name : SimpleDataSet
+[2024/05/18 02:55:15] wzocr INFO:         ratio_list : [1.0]
+[2024/05/18 02:55:15] wzocr INFO:         transforms : 
+[2024/05/18 02:55:15] wzocr INFO:             DecodeImage : 
+[2024/05/18 02:55:15] wzocr INFO:                 channel_first : False
+[2024/05/18 02:55:15] wzocr INFO:                 img_mode : BGR
+[2024/05/18 02:55:15] wzocr INFO:             DetLabelEncode : None
+[2024/05/18 02:55:15] wzocr INFO:             IaaAugment : 
+[2024/05/18 02:55:15] wzocr INFO:                 augmenter_args : 
+[2024/05/18 02:55:15] wzocr INFO:                     args : 
+[2024/05/18 02:55:15] wzocr INFO:                         p : 0.5
+[2024/05/18 02:55:15] wzocr INFO:                     type : Fliplr
+[2024/05/18 02:55:15] wzocr INFO:                     args : 
+[2024/05/18 02:55:15] wzocr INFO:                         rotate : [-10, 10]
+[2024/05/18 02:55:15] wzocr INFO:                     type : Affine
+[2024/05/18 02:55:15] wzocr INFO:                     args : 
+[2024/05/18 02:55:15] wzocr INFO:                         size : [0.5, 3]
+[2024/05/18 02:55:15] wzocr INFO:                     type : Resize
+[2024/05/18 02:55:15] wzocr INFO:             EastRandomCropData : 
+[2024/05/18 02:55:15] wzocr INFO:                 keep_ratio : True
+[2024/05/18 02:55:15] wzocr INFO:                 max_tries : 50
+[2024/05/18 02:55:15] wzocr INFO:                 size : [640, 640]
+[2024/05/18 02:55:15] wzocr INFO:             MakeBorderMap : 
+[2024/05/18 02:55:15] wzocr INFO:                 shrink_ratio : 0.4
+[2024/05/18 02:55:15] wzocr INFO:                 thresh_max : 0.7
+[2024/05/18 02:55:15] wzocr INFO:                 thresh_min : 0.3
+[2024/05/18 02:55:15] wzocr INFO:             MakeShrinkMap : 
+[2024/05/18 02:55:15] wzocr INFO:                 min_text_size : 8
+[2024/05/18 02:55:15] wzocr INFO:                 shrink_ratio : 0.4
+[2024/05/18 02:55:15] wzocr INFO:             NormalizeImage : 
+[2024/05/18 02:55:15] wzocr INFO:                 mean : [0.485, 0.456, 0.406]
+[2024/05/18 02:55:15] wzocr INFO:                 order : hwc
+[2024/05/18 02:55:15] wzocr INFO:                 scale : 1./255.
+[2024/05/18 02:55:15] wzocr INFO:                 std : [0.229, 0.224, 0.225]
+[2024/05/18 02:55:15] wzocr INFO:             ToCHWImage : None
+[2024/05/18 02:55:15] wzocr INFO:             KeepKeys : 
+[2024/05/18 02:55:15] wzocr INFO:                 keep_keys : ['image', 'threshold_map', 'threshold_mask', 'shrink_map', 'shrink_mask']
+[2024/05/18 02:55:15] wzocr INFO:     loader : 
+[2024/05/18 02:55:15] wzocr INFO:         batch_size_per_card : 6
+[2024/05/18 02:55:15] wzocr INFO:         drop_last : False
+[2024/05/18 02:55:15] wzocr INFO:         num_workers : 4
+[2024/05/18 02:55:15] wzocr INFO:         shuffle : True
+[2024/05/18 02:55:15] wzocr INFO: train with pytorch 2.3.0+cpu and device cpu
+[2024/05/18 02:55:15] wzocr INFO: Initialize indexs of datasets:['./dataset/icdar2015/text_localization/train_icdar2015_label.txt']
+[2024/05/18 02:55:15] wzocr INFO: Initialize indexs of datasets:['./dataset/icdar2015/text_localization/test_icdar2015_label.txt']
+[2024/05/18 02:55:15] wzocr INFO: train dataloader has 3 iters
+[2024/05/18 02:55:15] wzocr INFO: valid dataloader has 6 iters
+[2024/05/18 02:55:15] wzocr INFO: During the training process, after the 0th iteration, an evaluation is run every 50 iterations
+[2024/05/18 02:56:47] wzocr INFO: epoch: [1/1200], global_step: 1, lr: 0.000333, loss: 219955424.000000, loss_shrink_maps: 219955424.000000, loss_threshold_maps: 3.117698, loss_binary_maps: 0.986496, 
+ 								 ips: 0.07740 samples/s, eta: 3 days, 5:24:24
+[2024/05/18 02:57:30] wzocr INFO: epoch: [1/1200], global_step: 2, lr: 0.000370, loss: 174867104.000000, loss_shrink_maps: 174867104.000000, loss_threshold_maps: 2.923384, loss_binary_maps: 0.971548, 
+ 								 ips: 0.14015 samples/s, eta: 2 days, 12:04:44
+[2024/05/18 02:57:32] wzocr INFO: save model in ./output/det_r50_vd/best_accuracy
+[2024/05/18 02:58:32] wzocr INFO: epoch: [2/1200], global_step: 3, lr: 0.000407, loss: 133884560.000000, loss_shrink_maps: 133884560.000000, loss_threshold_maps: 2.729071, loss_binary_maps: 0.956599, 
+ 								 ips: 0.09711 samples/s, eta: 2 days, 12:34:03
+[2024/05/18 02:59:02] wzocr INFO: epoch: [2/1200], global_step: 4, lr: 0.000444, loss: 131831672.000000, loss_shrink_maps: 131831672.000000, loss_threshold_maps: 2.344358, loss_binary_maps: 0.954173, 
+ 								 ips: 0.20031 samples/s, eta: 2 days, 4:53:51
+[2024/05/18 02:59:03] wzocr INFO: save model in ./output/det_r50_vd/best_accuracy
+[2024/05/18 02:59:59] wzocr INFO: epoch: [3/1200], global_step: 5, lr: 0.000481, loss: 129778784.000000, loss_shrink_maps: 129778784.000000, loss_threshold_maps: 1.959645, loss_binary_maps: 0.951746, 
+ 								 ips: 0.10358 samples/s, eta: 2 days, 5:49:57
+[2024/05/18 03:00:30] wzocr INFO: epoch: [3/1200], global_step: 6, lr: 0.000519, loss: 115476016.000000, loss_shrink_maps: 115476016.000000, loss_threshold_maps: 1.952085, loss_binary_maps: 0.948098, 
+ 								 ips: 0.19830 samples/s, eta: 2 days, 1:53:16
+[2024/05/18 03:00:31] wzocr INFO: save model in ./output/det_r50_vd/best_accuracy
+[2024/05/18 03:01:42] wzocr INFO: epoch: [4/1200], global_step: 7, lr: 0.000556, loss: 101173240.000000, loss_shrink_maps: 101173240.000000, loss_threshold_maps: 1.944526, loss_binary_maps: 0.944449, 
+ 								 ips: 0.08255 samples/s, eta: 2 days, 5:04:07
+[2024/05/18 03:02:31] wzocr INFO: epoch: [4/1200], global_step: 8, lr: 0.000593, loss: 108241184.000000, loss_shrink_maps: 108241184.000000, loss_threshold_maps: 1.782201, loss_binary_maps: 0.942261, 
+ 								 ips: 0.12230 samples/s, eta: 2 days, 4:32:37
+[2024/05/18 03:02:35] wzocr INFO: save model in ./output/det_r50_vd/best_accuracy
