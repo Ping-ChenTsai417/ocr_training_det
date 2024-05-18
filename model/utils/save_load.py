@@ -36,15 +36,16 @@ def save_model(model,
     save model to the target path
     """
     _mkdir_if_not_exist(model_path, logger)
-    # model_prefix = os.path.join(model_path, prefix)
     save_path = os.path.join(model_path, f"Epoch_{epoch}_"+ prefix + ".pth")
 
-    torch.save({
-        'epoch': epoch,
-        'model_state_dict': model.state_dict(),
-        'optimizer_state_dict': optimizer.state_dict(),
-        'scheduler_state_dict': scheduler.state_dict()
-    }, save_path)
+    # torch.save({
+    #     'model_state_dict': model.state_dict(),
+    #     'optimizer_state_dict': optimizer.state_dict(),
+    #     'scheduler_state_dict': scheduler.state_dict()
+    # }, save_path)
+
+    #->  Unexpected key(s) in state_dict: "epoch", "model_state_dict", "optimizer_state_dict", "scheduler_state_dict".'''
+    torch.save(model.state_dict(), save_path)
 
     # save metric and config
     if is_best:
