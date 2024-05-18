@@ -5,4 +5,6 @@ C:/Users/PingChen/AppData/Local/anaconda3/envs/OCR_test/python.exe train.py --co
 
 ----
 Inference
-C:/Users/PingChen/AppData/Local/anaconda3/envs/OCR_test/python.exe ./tools/infer/predict_det.py --image_dir ./dataset/icdar2015/text_localization/icdar_c4_train_imgs/img_967.jpg --det_model_path ./output/det_r50_vd/best_accuracy/Epoch_1_accOCR.pth --det_yaml_path ./configs/det/det_r50_vd_db.yml
+C:/Users/PingChen/AppData/Local/anaconda3/envs/OCR_test/python.exe ./tools/infer/predict_det.py --image_dir ./dataset/icdar2015/text_localization/icdar_c4_train_imgs/img_246.jpg --det_model_path ./output/det_r50_vd/best_accuracy/Epoch_1_accOCR.pth --det_yaml_path ./configs/det/det_r50_vd_db.yml
+
+----

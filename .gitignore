@@ -1,4 +1,11 @@
 .vscode/
 __pycache__/
-output/det_r50_vd/tensor_log/
-dataset/
+output/det_r50_vd/
+
+
+dataset/icdar_2015/
+
+dataset/icdar2015/text_localization/ch4_test_images/
+dataset/icdar2015/text_localization/ch4_test_images_gt/
+dataset/icdar2015/text_localization/ch4_training_localization_transcription_gt/
+dataset/icdar2015/text_localization/icdar_c4_train_imgs/
