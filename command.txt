@@ -2,7 +2,9 @@ Python interpreter
 C:/Users/PingChen/AppData/Local/anaconda3/envs/OCR_test/python.exe 
 
 Train：
-C:/Users/PingChen/AppData/Local/anaconda3/envs/OCR_test/python.exe train.py --config configs\det\det_r50_vd_db.yml
+C:/Users/PingChen/AppData/Local/anaconda3/envs/OCR_test/python.exe train.py --config configs/det/det_r50_vd_db_v2.0.yml
+
+python train.py --config ./configs/det/det_r50_vd_db_v2.0.yml
 
 ----
 Inference using Resnet model
@@ -12,9 +14,9 @@ C:/Users/PingChen/AppData/Local/anaconda3/envs/OCR_test/python.exe ./tools/infer
 ----
 Use PytorchOCR Resnet_vd pth
 
-C:/Users/PingChen/AppData/Local/anaconda3/envs/OCR_test/python.exe ./tools/infer/predict_det.py --image_dir 00111002.jpg --det_model_path ./output/det_r50_vd/best_accuracy/det_r50_vd_db_v2.0_infer.pth --det_yaml_path ./configs/det/det_r50_vd_db_ppocr.yml
+C:/Users/PingChen/AppData/Local/anaconda3/envs/OCR_test/python.exe ./tools/infer/predict_det.py --image_dir 00111002.jpg --det_model_path ./output/det_r50_vd/best_accuracy/det_r50_vd_db_v2.0_infer.pth --det_yaml_path ./configs/det/det_r50_vd_db_v2.0.yml
 
 -----
 Inference VAT 2.jpg 
 
-C:/Users/PingChen/AppData/Local/anaconda3/envs/OCR_test/python.exe ./tools/infer/predict_det.py --image_dir ./dataset/VAT/vat_train_imgs/2.jpg --det_model_path ./output/det_r50_vd/best_accuracy/det_r50_vd_db_v2.0_infer.pth --det_yaml_path ./configs/det/det_r50_vd_db_ppocr.yml
+C:/Users/PingChen/AppData/Local/anaconda3/envs/OCR_test/python.exe ./tools/infer/predict_det.py --image_dir ./dataset/VAT/vat_train_imgs/2.jpg --det_model_path ./output/det_r50_vd/best_accuracy/det_r50_vd_db_v2.0_infer.pth --det_yaml_path ./configs/det/det_r50_vd_db_v2.0.yml

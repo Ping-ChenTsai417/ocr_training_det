@@ -1,21 +1,28 @@
 Global:
-  use_gpu: true
+  use_gpu: false
+  gpu_id: 0
   epoch_num: 1200
   log_smooth_window: 20
   print_batch_step: 10
   save_model_dir: ./output/det_r50_vd/
-  save_epoch_step: 1200
+  save_epoch_step: 100 #1200
   # evaluation is run every 2000 iterations
-  eval_batch_step: [0,2000]
+  eval_batch_step: [0,50,2000]
   # if pretrained_model is saved in static mode, load_static_weights must set to True
   load_static_weights: True
   cal_metric_during_train: False
   pretrained_model: ./pretrain_models/ResNet50_vd_ssld_pretrained
-  checkpoints:
+  checkpoints: ./output/det_r50_vd/best_accuracy
   save_inference_dir:
-  use_visualdl: False
+  # use_visualdl: False
+  # infer_img: doc/imgs_en/img_10.jpg
+  # save_res_path: ./output/det_db/predicts_db.txt
+  save_inference_dir: null
+  use_tensorboard: True
   infer_img: doc/imgs_en/img_10.jpg
   save_res_path: ./output/det_db/predicts_db.txt
+  seed: 1024
+
 
 Architecture:
   model_type: det
@@ -39,15 +46,26 @@ Loss:
   beta: 10
   ohem_ratio: 3
 
+# Optimizer:
+#   name: Adam
+#   beta1: 0.9
+#   beta2: 0.999
+#   lr:
+#     learning_rate: 0.001
+#   regularizer:
+#     name: 'L2'
+#     factor: 0
+
 Optimizer:
-  name: Adam
-  beta1: 0.9
-  beta2: 0.999
-  lr:
-    learning_rate: 0.001
-  regularizer:
-    name: 'L2'
-    factor: 0
+  type: Adam
+  args:
+    lr: 0.001
+    weight_decay: 0
+    amsgrad: true
+  lr_scheduler:
+    type: WarmupPolyLR
+    args:
+      warmup_epoch: 3
 
 PostProcess:
   name: DBPostProcess
@@ -63,9 +81,9 @@ Metric:
 Train:
   dataset:
     name: SimpleDataSet
-    data_dir: ./train_data/icdar2015/text_localization/
+    data_dir: ./dataset/icdar2015/text_localization/
     label_file_list:
-      - ./train_data/icdar2015/text_localization/train_icdar2015_label.txt
+      - ./dataset/icdar2015/text_localization/train_icdar2015_label.txt
     ratio_list: [1.0]
     transforms:
       - DecodeImage: # load image
@@ -105,9 +123,9 @@ Train:
 Eval:
   dataset:
     name: SimpleDataSet
-    data_dir: ./train_data/icdar2015/text_localization/
+    data_dir: ./dataset/icdar2015/text_localization/
     label_file_list:
-      - ./train_data/icdar2015/text_localization/test_icdar2015_label.txt
+      - ./dataset/icdar2015/text_localization/test_icdar2015_label.txt
     transforms:
       - DecodeImage: # load image
           img_mode: BGR
@@ -127,4 +145,4 @@ Eval:
     shuffle: False
     drop_last: False
     batch_size_per_card: 1 # must be 1
-    num_workers: 8
+    num_workers: 2 #8

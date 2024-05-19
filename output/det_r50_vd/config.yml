@@ -10,6 +10,7 @@ Global:
   - 0
   - 50
   - 2000
+  load_static_weights: true
   cal_metric_during_train: false
   pretrained_model: ./pretrain_models/ResNet50_vd_ssld_pretrained
   checkpoints: ./output/det_r50_vd/best_accuracy
@@ -23,13 +24,8 @@ Architecture:
   algorithm: DB
   Transform: null
   Backbone:
-    name: ResNet
-    block: Bottleneck
-    num_blocks:
-    - 3
-    - 4
-    - 6
-    - 3
+    name: ResNet_vd
+    layers: 50
   Neck:
     name: DBFPN
     out_channels: 256
@@ -125,8 +121,8 @@ Train:
   loader:
     shuffle: true
     drop_last: false
-    batch_size_per_card: 6
-    num_workers: 4
+    batch_size_per_card: 16
+    num_workers: 8
 Eval:
   dataset:
     name: SimpleDataSet
