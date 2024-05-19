@@ -20,3 +20,8 @@ C:/Users/PingChen/AppData/Local/anaconda3/envs/OCR_test/python.exe ./tools/infer
 Inference VAT 2.jpg 
 
 C:/Users/PingChen/AppData/Local/anaconda3/envs/OCR_test/python.exe ./tools/infer/predict_det.py --image_dir ./dataset/VAT/vat_train_imgs/2.jpg --det_model_path ./output/det_r50_vd/best_accuracy/det_r50_vd_db_v2.0_infer.pth --det_yaml_path ./configs/det/det_r50_vd_db_v2.0.yml
+
+
+Inference VAT 2.jpg 
+
+C:/Users/PingChen/AppData/Local/anaconda3/envs/OCR_test/python.exe ./tools/infer/predict_det.py --image_dir ./dataset/VAT/vat_train_imgs/2.jpg --det_model_path ./output/det_r50_vd/best_accuracy/Epoch_0_accOCR.pth --det_yaml_path ./configs/det/det_r50_vd_db_v2.0.yml
