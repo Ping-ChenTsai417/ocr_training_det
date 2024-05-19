@@ -5,7 +5,8 @@ def build_backbone(config, model_type):
     # 判断训练模式，目前只关注det，backbone只有resnet
     if model_type == "det":
         from .ResNet import ResNet
-        support_dict = ["ResNet"]
+        from .det_resnet_vd import ResNet_vd
+        support_dict = ['ResNet','ResNet_vd']
     module_name = config.pop('name')
     assert module_name in support_dict, \
         Exception("when model typs is {}, backbone only support {}"

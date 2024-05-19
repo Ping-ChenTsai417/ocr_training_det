@@ -1,7 +1,9 @@
 .vscode/
 __pycache__/
-output/det_r50_vd/
 
+.pth
+
+output/det_r50_vd/
 
 dataset/icdar_2015/
 

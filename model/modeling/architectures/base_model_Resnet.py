@@ -1,23 +1,30 @@
-import os, sys
-# import torch
-import torch.nn as nn
-# import torch.nn.functional as F
-# from pytorchocr.modeling.common import Activation
-
-from model.modeling.transforms import build_transform
+import torch
+from torch import nn
+import torch.utils.model_zoo as model_zoo
 from model.modeling.backbones import build_backbone
 from model.modeling.necks import build_neck
 from model.modeling.heads import build_head
 
+
+__all__ = ['BaseModel']
+
+model_urls = {
+    'resnet18': 'https://download.pytorch.org/models/resnet18-5c106cde.pth',
+    'resnet34': 'https://download.pytorch.org/models/resnet34-333f7ec4.pth',
+    'resnet50': 'https://download.pytorch.org/models/resnet50-19c8e357.pth',
+    'resnet101': 'https://download.pytorch.org/models/resnet101-5d3b4d8f.pth',
+    'resnet152': 'https://download.pytorch.org/models/resnet152-b121ed2d.pth',
+}
+
+
 class BaseModel(nn.Module):
-    def __init__(self, config, **kwargs):
+    def __init__(self, config):
         """
         the module for OCR.
         args:
             config (dict): the super parameters for module.
         """
         super(BaseModel, self).__init__()
-
         in_channels = config.get('in_channels', 3)
         model_type = config['model_type']
         # build transfrom,
@@ -26,12 +33,11 @@ class BaseModel(nn.Module):
         # if you make model differently, you can use transfrom in det and cls
         if 'Transform' not in config or config['Transform'] is None:
             self.use_transform = False
-        else:
-            self.use_transform = True
-            config['Transform']['in_channels'] = in_channels
-            self.transform = build_transform(config['Transform'])
-            in_channels = self.transform.out_channels
-            # raise NotImplementedError
+        # else:
+        #     self.use_transform = True
+        #     config['Transform']['in_channels'] = in_channels
+        #     self.transform = build_transform(config['Transform'])
+        #     in_channels = self.transform.out_channels
 
         # build backbone, backbone is need for del, rec and cls
         if 'Backbone' not in config or config['Backbone'] is None:
@@ -43,9 +49,6 @@ class BaseModel(nn.Module):
             in_channels = self.backbone.out_channels
 
         # build neck
-        # for rec, neck can be cnn,rnn or reshape(None)
-        # for det, neck can be FPN, BIFPN and so on.
-        # for cls, neck should be none
         if 'Neck' not in config or config['Neck'] is None:
             self.use_neck = False
         else:
@@ -60,36 +63,15 @@ class BaseModel(nn.Module):
         else:
             self.use_head = True
             config["Head"]['in_channels'] = in_channels
-            self.head = build_head(config["Head"], **kwargs)
+            self.head = build_head(config["Head"])
 
         self.return_all_feats = config.get("return_all_feats", False)
 
-        self._initialize_weights()
+    def forward(self, x, data=None):
 
-    def _initialize_weights(self):
-        # weight initialization
-        for m in self.modules():
-            if isinstance(m, nn.Conv2d):
-                nn.init.kaiming_normal_(m.weight, mode='fan_out')
-                if m.bias is not None:
-                    nn.init.zeros_(m.bias)
-            elif isinstance(m, nn.BatchNorm2d):
-                nn.init.ones_(m.weight)
-                nn.init.zeros_(m.bias)
-            elif isinstance(m, nn.Linear):
-                nn.init.normal_(m.weight, 0, 0.01)
-                if m.bias is not None:
-                    nn.init.zeros_(m.bias)
-            elif isinstance(m, nn.ConvTranspose2d):
-                nn.init.kaiming_normal_(m.weight, mode='fan_out')
-                if m.bias is not None:
-                    nn.init.zeros_(m.bias)
-
-
-    def forward(self, x):
         y = dict()
-        if self.use_transform:
-            x = self.transform(x)
+        # if self.use_transform:
+        #     x = self.transform(x)
         if self.use_backbone:
             x = self.backbone(x)
         if isinstance(x, dict):
@@ -105,15 +87,16 @@ class BaseModel(nn.Module):
                 y["neck_out"] = x
             final_name = "neck_out"
         if self.use_head:
-            x = self.head(x)
-        # for multi head, save ctc neck out for udml
-        if isinstance(x, dict) and 'ctc_nect' in x.keys():
-            y['neck_out'] = x['ctc_neck']
-            y['head_out'] = x
-        elif isinstance(x, dict):
-            y.update(x)
-        else:
-            y["head_out"] = x
+            x = self.head(x, targets=data)
+            # for multi head, save ctc neck out for udml
+            if isinstance(x, dict) and 'ctc_neck' in x.keys():
+                y["neck_out"] = x["ctc_neck"]
+                y["head_out"] = x
+            elif isinstance(x, dict):
+                y.update(x)
+            else:
+                y["head_out"] = x
+            final_name = "head_out"
         if self.return_all_feats:
             if self.training:
                 return y
@@ -123,3 +106,4 @@ class BaseModel(nn.Module):
                 return {final_name: x}
         else:
             return x
+
