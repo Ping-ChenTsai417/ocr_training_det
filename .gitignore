@@ -1,6 +1,6 @@
 .vscode/
 __pycache__/
-
+.zip
 .pth
 
 output/det_r50_vd/
